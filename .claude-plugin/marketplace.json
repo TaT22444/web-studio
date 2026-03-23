@@ -10,7 +10,11 @@
       "name": "web-studio",
       "description": "Web制作ワークフロースキル。要件定義（Phase 1）→ デザイン（Phase 2）→ 実装（Phase 3）の3フェーズでWebサイト・LP・コーポレートサイトを制作する。",
       "category": "productivity",
-      "source": ".",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/TaT22444/web-studio.git",
+        "sha": "65027631c6444dcbce64b7fd7233f45809643116"
+      },
       "homepage": "https://github.com/TaT22444/web-studio"
     }
   ]
