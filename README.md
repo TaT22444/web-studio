@@ -29,3 +29,13 @@ Webサイト・LP・コーポレートサイトの制作依頼をすると自動
 ```bash
 claude plugin update web-studio
 ```
+
+### 更新が反映されない場合
+
+環境によっては `update` が失敗したり、マーケットプレイスのキャッシュが古いままになることがあります。その場合は、マーケットプレイスを再登録してから再インストールしてください。
+
+```bash
+claude plugin marketplace remove web-studio
+claude plugin marketplace add TaT22444/web-studio
+claude plugin install web-studio
+```
