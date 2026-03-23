@@ -17,12 +17,21 @@ Webサイト・LP・コーポレートサイトの制作依頼をすると自動
 
 | フェーズ | 担当 | 成果物 |
 |---|---|---|
-| Phase 1: ヒアリング＋要件定義 | ディレクター | `{project}/docs/context.md` `{project}/docs/requirements.md` |
-| Phase 2: ワイヤーフレーム | デザイナー | `{project}/wireframe.html` |
-| Phase 3: ビジュアルデザイン | デザイナー | `{project}/design-draft.html` |
-| Phase 4: 実装 | エンジニア | `{project}/src/` |
+| Phase 1: ヒアリング＋要件定義 | ディレクター | `docs/interview.md` `docs/context.md` `docs/requirements.md` `docs/DESIGN.md`(v1) |
+| Phase 2: ワイヤーフレーム | デザイナー | `wireframe.html` |
+| Phase 3: ビジュアルデザイン | デザイナー | `design-draft.html` + `docs/DESIGN.md`(v2) |
+| Phase 4: 実装 | エンジニア | `src/` |
 
 各フェーズはユーザーの承認を得てから次へ進みます。
+
+### docs/ の構成
+
+| ファイル | 役割 |
+|---|---|
+| `interview.md` | ヒアリングの質問と回答の生ログ |
+| `context.md` | 事業背景・AIの判断基準 |
+| `requirements.md` | 仕様・構成・導線設計 |
+| `DESIGN.md` | デザインシステム（v1: 方向性ドラフト → v2: 確定値） |
 
 ## アップデート
 

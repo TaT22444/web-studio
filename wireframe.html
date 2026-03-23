@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working Coffee - ワイヤーフレーム</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background-color: #FFFFFF; color: #333333;">
+  <!--
+    WIREFRAME STRATEGY: Working Coffee
+
+    ターゲット: カフェで作業するのが好きな人（短時間で「合いそう」を判断したい）
+    主目的: 予約ではなく、空気感の証拠（写真/Instagram）と実用情報（メニュー/時間/地図）で来店の気持ちを固める
+
+    セクション順序の設計根拠（無駄を省いて集約）:
+    1. Hero — 静寂の価値を最初に言葉と写真で体感させる（コンセプト説明はここに内包）
+    2. メニュー — 来店後に何があるかを具体化する（主力/期間限定は画像で強調）
+    3. 基本情報 — 営業時間・店舗情報・Mapを“同格”で整列（Mapを主CTAにしない）
+    4. 写真+Instagram — 空気感の証拠を同一ブロックで連続体験させる（更新性も回収）
+    5. フッター（お知らせ含む）— 最新情報を最後に補完し、迷った時の再導線にする
+
+    導線設計:
+    興味→静寂の体感（Hero）→具体の納得（メニュー）→行ける判断（時間/地図）→空気の証拠（写真/Instagram）→最新補完（お知らせ）
+  -->
+
+  <header style="border-bottom: 1px solid #DDDDDD; background-color: #FFFFFF;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; border: 1px solid #DDDDDD; background-color: #F5F5F5; display: flex; align-items: center; justify-content: center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 7h10v6a5 5 0 0 1-5 5H9a2 2 0 0 1-2-2V7Z" stroke="#333333" stroke-width="1.6" />
+            <path d="M17 9h2a3 3 0 0 1 0 6h-2" stroke="#333333" stroke-width="1.6" />
+            <path d="M9 3c0 1 .8 1.8 1.8 1.8" stroke="#333333" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M13 3c0 1 .8 1.8 1.8 1.8" stroke="#333333" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <div style="font-size: 14px; color: #666666; line-height: 1.2;">Working Coffee</div>
+          <div style="font-size: 16px; font-weight: 700; line-height: 1.2;">Web Site</div>
+        </div>
+      </div>
+
+      <nav style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="#menu" style="text-decoration: none; color: #333333; font-size: 14px;">メニュー</a>
+        <a href="#info" style="text-decoration: none; color: #333333; font-size: 14px;">営業時間・情報</a>
+        <a href="#space" style="text-decoration: none; color: #333333; font-size: 14px;">写真/Instagram</a>
+        <a href="#footer" style="text-decoration: none; color: #333333; font-size: 14px;">お知らせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 意図: ファーストビューで静寂を体感させる（コンセプト説明をここに集約） -->
+    <section id="hero" style="background-color: #F5F5F5; padding: 80px 40px 56px;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: stretch; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+        <div style="flex: 1 1 460px; min-width: 320px;">
+          <div style="display: inline-block; padding: 8px 12px; border: 1px solid #DDDDDD; background-color: #FFFFFF; border-radius: 999px; font-size: 12px; color: #666666; margin-bottom: 24px;">
+            この静寂が、いちばんの贅沢。
+          </div>
+          <h1 style="margin: 0; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em;">Working Coffee</h1>
+          <p style="margin: 16px 0 0; font-size: 16px; color: #666666; max-width: 560px; line-height: 1.8;">
+            コンクリートのスタイリッシュさと、どこか暖かい空気。<br>
+            作業が好きな人に合う「静けさ」を、メニューと写真で確かめてください。
+          </p>
+
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px;">
+            <a href="#menu" style="text-decoration: none; background-color: #333333; color: #FFFFFF; padding: 12px 18px; border-radius: 10px; font-size: 14px; display: inline-block;">
+              メニューを見る
+            </a>
+            <a href="#info" style="text-decoration: none; background-color: #FFFFFF; color: #333333; padding: 12px 18px; border-radius: 10px; font-size: 14px; border: 1px solid #DDDDDD; display: inline-block;">
+              営業時間・情報
+            </a>
+            <a href="#space" style="text-decoration: none; background-color: #FFFFFF; color: #333333; padding: 12px 18px; border-radius: 10px; font-size: 14px; border: 1px solid #DDDDDD; display: inline-block;">
+              写真/Instagram
+            </a>
+          </div>
+        </div>
+
+        <div style="flex: 1 1 420px; min-width: 320px;">
+          <!-- hero image placeholder (required) -->
+          <div style="width: 100%; height: 420px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC; border-radius: 16px;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 16px;">
+              [画像プレースホルダー: 静かな店内（コンクリート剥き出し + 作業スペース）]（1440×800 想定）
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 来店後の期待を具体化（主力/期間限定を画像で強調） -->
+    <section id="menu" style="background-color: #FFFFFF; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">メニュー</h2>
+          <p style="margin: 0; color: #666666; font-size: 14px; max-width: 520px; line-height: 1.6;">
+            基本はテキストで整理。主力商品や期間限定は、視線が止まるよう画像で大きく見せます。
+          </p>
+        </div>
+
+        <div style="margin-top: 32px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <!-- 主力 -->
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: シグネチャー ブレンド]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">シグネチャー ブレンド</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: カフェラテ]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">カフェラテ</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: ドリップ（豆の表情）]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">ドリップ</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+
+          <!-- 期間限定 -->
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: 期間限定（大きな見せ場）]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">期間限定</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">期間限定メニュー</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">いつからいつまで</div>
+            </div>
+          </div>
+
+          <!-- フード例 -->
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: 軽食（ケーキ/軽いプレート）]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">フード</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">軽食メニュー</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; border-top: 1px solid #DDDDDD; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div style="font-size: 14px; color: #666666;">※ 画像と実データ（商品名/価格）は後で差し替え</div>
+          <a href="#footer" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+            お知らせも確認
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: Mapを主CTAにせず、営業時間/店舗情報と同格で整列する -->
+    <section id="info" style="background-color: #F5F5F5; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">営業時間 & 店舗情報</h2>
+          <p style="margin: 0; color: #666666; font-size: 14px; max-width: 520px; line-height: 1.6;">
+            「行けるか」を短時間で判断できるよう、必要な要素をコンパクトにまとめます。
+          </p>
+        </div>
+
+        <div style="margin-top: 48px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1 1 360px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 24px;">
+            <div style="font-size: 14px; color: #666666;">営業時間</div>
+            <div style="margin-top: 12px; border: 1px solid #DDDDDD; border-radius: 12px; overflow: hidden; background-color: #FFFFFF;">
+              <div style="display: flex; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid #DDDDDD;">
+                <div style="color: #666666; font-size: 14px;">平日</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">7:00 - 20:00</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 12px 14px;">
+                <div style="color: #666666; font-size: 14px;">休日（祝）</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">8:00 - 20:00</div>
+              </div>
+            </div>
+            <div style="margin-top: 14px; color: #999999; font-size: 12px; line-height: 1.6;">
+              定休日がある場合はここに追記（現状は未記載）
+            </div>
+          </div>
+
+          <div style="flex: 1 1 360px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 24px;">
+            <div style="font-size: 14px; color: #666666;">店舗情報</div>
+            <div style="margin-top: 12px; border: 1px solid #DDDDDD; border-radius: 12px; background-color: #FFFFFF; padding: 14px;">
+              <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="color: #666666; font-size: 14px;">住所</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">（仮: 住所は差し替え）</div>
+              </div>
+              <div style="margin-top: 10px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="color: #666666; font-size: 14px;">目印</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">（仮: 最寄り/目印）</div>
+              </div>
+            </div>
+            <div style="margin-top: 14px; color: #999999; font-size: 12px; line-height: 1.6;">
+              電話番号/連絡先は必要に応じて追記（予約導線は主役にしない）
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 24px;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 14px; color: #666666;">Google Map（基礎情報として）</div>
+              <div style="margin-top: 8px; color: #333333; font-size: 16px; font-weight: 700;">場所を確認</div>
+            </div>
+            <div style="color: #999999; font-size: 12px;">共有URLは後で差し替え（現状は仮）</div>
+          </div>
+          <div style="margin-top: 14px; width: 100%; height: 260px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC; border-radius: 12px;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 14px;">
+              [プレースホルダー: Google Map 埋め込み枠（仮URL）]
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 写真とInstagramを同一ブロックに集約して、空気感の証拠を連続体験させる -->
+    <section id="space" style="background-color: #FFFFFF; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">写真 & Instagram</h2>
+          <p style="margin: 0; color: #666666; font-size: 14px; max-width: 520px; line-height: 1.6;">
+            文章では伝えにくい「静けさ」を、写真と投稿の両方で確認できます。
+          </p>
+        </div>
+
+        <div style="margin-top: 32px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <!-- Photos -->
+          <div style="flex: 1 1 520px; min-width: 320px;">
+            <div style="border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 18px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="font-size: 14px; color: #666666;">写真ギャラリー</div>
+                <div style="font-size: 12px; color: #999999;">内観/作業風景を優先</div>
+              </div>
+              <div style="margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <div style="flex: 2 1 260px; min-width: 240px; height: 280px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 14px; text-align: center; padding: 14px;">[画像: 静かな店内（広角）]</span>
+                </div>
+                <div style="flex: 1 1 160px; min-width: 140px; height: 130px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">[画像: 作業席]</span>
+                </div>
+                <div style="flex: 1 1 160px; min-width: 140px; height: 130px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">[画像: コンクリート/木の質感]</span>
+                </div>
+                <div style="flex: 1 1 160px; min-width: 140px; height: 130px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">[画像: コーヒーの質感]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instagram -->
+          <div style="flex: 1 1 360px; min-width: 300px;">
+            <div style="border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 18px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="font-size: 14px; color: #666666;">Instagram</div>
+                <div style="font-size: 12px; color: #999999;">ギャラリー的に埋め込み想定</div>
+              </div>
+
+              <div style="margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="#" style="text-decoration: none; background-color: #333333; color: #FFFFFF; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-flex; align-items: center; gap: 10px;">
+                  <span>インスタを見る（リンク差し替え）</span>
+                </a>
+                <div style="align-self: center; color: #999999; font-size: 12px;">アカウントURLは確定後に更新</div>
+              </div>
+
+              <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 席/作業]</span>
+                </div>
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: コーヒー]</span>
+                </div>
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 店内]</span>
+                </div>
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 期間限定]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 最後にお知らせをコンパクトにまとめ、再導線とする（セクション数を抑える） -->
+    <section id="footer" style="background-color: #FFFFFF; padding: 64px 40px 80px; border-top: 1px solid #DDDDDD;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1 1 320px; min-width: 280px;">
+            <div style="font-size: 14px; color: #666666;">Working Coffee</div>
+            <div style="margin-top: 10px; font-size: 16px; font-weight: 700;">この静寂が、いちばんの贅沢。</div>
+            <div style="margin-top: 10px; color: #666666; font-size: 14px; line-height: 1.8;">
+              メニュー / 写真 / Instagram / お知らせで、来店の気持ちを固めてください。
+            </div>
+          </div>
+
+          <div style="flex: 1 1 420px; min-width: 300px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 20px;">
+            <div style="font-size: 14px; color: #666666;">お知らせ（更新予定）</div>
+            <div style="margin-top: 14px; border-top: 1px solid #DDDDDD;">
+              <div style="padding-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline;">
+                <div style="font-size: 12px; color: #999999; min-width: 120px;">2026.03.23</div>
+                <div style="flex: 1; min-width: 220px;">
+                  <div style="font-size: 16px; font-weight: 700; color: #333333; line-height: 1.4;">オープンのお知らせ</div>
+                  <div style="margin-top: 8px; font-size: 14px; color: #666666; line-height: 1.8;">メニュー/営業時間など最新情報はこちら（内容差し替え）</div>
+                </div>
+              </div>
+
+              <div style="padding-top: 16px; padding-bottom: 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline; border-top: 1px solid #DDDDDD;">
+                <div style="font-size: 12px; color: #999999; min-width: 120px;">期間限定</div>
+                <div style="flex: 1; min-width: 220px;">
+                  <div style="font-size: 16px; font-weight: 700; color: #333333; line-height: 1.4;">期間限定メニュー</div>
+                  <div style="margin-top: 8px; font-size: 14px; color: #666666; line-height: 1.8;">画像はメニュー/Instagramで強調（内容差し替え）</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="#info" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                営業時間・情報へ
+              </a>
+              <a href="#space" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                写真/Instagramへ
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; height: 1px; background-color: #DDDDDD;"></div>
+        <div style="margin-top: 16px; color: #999999; font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <div>© 2026 Working Coffee. All rights reserved.（表記は差し替え）</div>
+          <div style="color: #999999;">Instagramリンクは本番で確定</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working Coffee - ワイヤーフレーム</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background-color: #FFFFFF; color: #333333;">
+  <!--
+    WIREFRAME STRATEGY: Working Coffee
+
+    ターゲット: カフェで作業するのが好きな人（短時間で「合いそう」を判断したい）
+    主目的: 予約ではなく、空気感の証拠（写真/Instagram）と実用情報（メニュー/時間/地図）で来店の気持ちを固める
+
+    セクション順序の設計根拠（無駄を省いて集約）:
+    1. Hero — 静寂の価値を最初に言葉と写真で体感させる（コンセプト説明はここに内包）
+    2. メニュー — 来店後に何があるかを具体化する（主力/期間限定は画像で強調）
+    3. 基本情報 — 営業時間・店舗情報・Mapを“同格”で整列（Mapを主CTAにしない）
+    4. 写真+Instagram — 空気感の証拠を同一ブロックで連続体験させる（更新性も回収）
+    5. フッター（お知らせ含む）— 最新情報を最後に補完し、迷った時の再導線にする
+
+    導線設計:
+    興味→静寂の体感（Hero）→具体の納得（メニュー）→行ける判断（時間/地図）→空気の証拠（写真/Instagram）→最新補完（お知らせ）
+  -->
+
+  <header style="border-bottom: 1px solid #DDDDDD; background-color: #FFFFFF;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; border: 1px solid #DDDDDD; background-color: #F5F5F5; display: flex; align-items: center; justify-content: center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 7h10v6a5 5 0 0 1-5 5H9a2 2 0 0 1-2-2V7Z" stroke="#333333" stroke-width="1.6" />
+            <path d="M17 9h2a3 3 0 0 1 0 6h-2" stroke="#333333" stroke-width="1.6" />
+            <path d="M9 3c0 1 .8 1.8 1.8 1.8" stroke="#333333" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M13 3c0 1 .8 1.8 1.8 1.8" stroke="#333333" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <div style="font-size: 14px; color: #666666; line-height: 1.2;">Working Coffee</div>
+          <div style="font-size: 16px; font-weight: 700; line-height: 1.2;">Web Site</div>
+        </div>
+      </div>
+
+      <nav style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="#menu" style="text-decoration: none; color: #333333; font-size: 14px;">メニュー</a>
+        <a href="#info" style="text-decoration: none; color: #333333; font-size: 14px;">営業時間・情報</a>
+        <a href="#space" style="text-decoration: none; color: #333333; font-size: 14px;">写真/Instagram</a>
+        <a href="#footer" style="text-decoration: none; color: #333333; font-size: 14px;">お知らせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 意図: ファーストビューで静寂を体感させる（コンセプト説明をここに集約） -->
+    <section id="hero" style="background-color: #F5F5F5; padding: 80px 40px 56px;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: stretch; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+        <div style="flex: 1 1 460px; min-width: 320px;">
+          <div style="display: inline-block; padding: 8px 12px; border: 1px solid #DDDDDD; background-color: #FFFFFF; border-radius: 999px; font-size: 12px; color: #666666; margin-bottom: 24px;">
+            この静寂が、いちばんの贅沢。
+          </div>
+          <h1 style="margin: 0; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em;">Working Coffee</h1>
+          <p style="margin: 16px 0 0; font-size: 16px; color: #666666; max-width: 560px; line-height: 1.8;">
+            コンクリートのスタイリッシュさと、どこか暖かい空気。<br>
+            作業が好きな人に合う「静けさ」を、メニューと写真で確かめてください。
+          </p>
+
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px;">
+            <a href="#menu" style="text-decoration: none; background-color: #333333; color: #FFFFFF; padding: 12px 18px; border-radius: 10px; font-size: 14px; display: inline-block;">
+              メニューを見る
+            </a>
+            <a href="#info" style="text-decoration: none; background-color: #FFFFFF; color: #333333; padding: 12px 18px; border-radius: 10px; font-size: 14px; border: 1px solid #DDDDDD; display: inline-block;">
+              営業時間・情報
+            </a>
+            <a href="#space" style="text-decoration: none; background-color: #FFFFFF; color: #333333; padding: 12px 18px; border-radius: 10px; font-size: 14px; border: 1px solid #DDDDDD; display: inline-block;">
+              写真/Instagram
+            </a>
+          </div>
+        </div>
+
+        <div style="flex: 1 1 420px; min-width: 320px;">
+          <!-- hero image placeholder (required) -->
+          <div style="width: 100%; height: 420px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC; border-radius: 16px;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 16px;">
+              [画像プレースホルダー: 静かな店内（コンクリート剥き出し + 作業スペース）]（1440×800 想定）
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 来店後の期待を具体化（主力/期間限定を画像で強調） -->
+    <section id="menu" style="background-color: #FFFFFF; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">メニュー</h2>
+          <p style="margin: 0; color: #666666; font-size: 14px; max-width: 520px; line-height: 1.6;">
+            基本はテキストで整理。主力商品や期間限定は、視線が止まるよう画像で大きく見せます。
+          </p>
+        </div>
+
+        <div style="margin-top: 32px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <!-- 主力 -->
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: シグネチャー ブレンド]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">シグネチャー ブレンド</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: カフェラテ]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">カフェラテ</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: ドリップ（豆の表情）]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">ドリップ</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+
+          <!-- 期間限定 -->
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: 期間限定（大きな見せ場）]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">期間限定</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">期間限定メニュー</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">いつからいつまで</div>
+            </div>
+          </div>
+
+          <!-- フード例 -->
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">[画像: 軽食（ケーキ/軽いプレート）]</span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">フード</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">軽食メニュー</div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">料金は差し替え</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; border-top: 1px solid #DDDDDD; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+          <div style="font-size: 14px; color: #666666;">※ 画像と実データ（商品名/価格）は後で差し替え</div>
+          <a href="#footer" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+            お知らせも確認
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: Mapを主CTAにせず、営業時間/店舗情報と同格で整列する -->
+    <section id="info" style="background-color: #F5F5F5; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">営業時間 & 店舗情報</h2>
+          <p style="margin: 0; color: #666666; font-size: 14px; max-width: 520px; line-height: 1.6;">
+            「行けるか」を短時間で判断できるよう、必要な要素をコンパクトにまとめます。
+          </p>
+        </div>
+
+        <div style="margin-top: 48px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1 1 360px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 24px;">
+            <div style="font-size: 14px; color: #666666;">営業時間</div>
+            <div style="margin-top: 12px; border: 1px solid #DDDDDD; border-radius: 12px; overflow: hidden; background-color: #FFFFFF;">
+              <div style="display: flex; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid #DDDDDD;">
+                <div style="color: #666666; font-size: 14px;">平日</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">7:00 - 20:00</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 12px 14px;">
+                <div style="color: #666666; font-size: 14px;">休日（祝）</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">8:00 - 20:00</div>
+              </div>
+            </div>
+            <div style="margin-top: 14px; color: #999999; font-size: 12px; line-height: 1.6;">
+              定休日がある場合はここに追記（現状は未記載）
+            </div>
+          </div>
+
+          <div style="flex: 1 1 360px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 24px;">
+            <div style="font-size: 14px; color: #666666;">店舗情報</div>
+            <div style="margin-top: 12px; border: 1px solid #DDDDDD; border-radius: 12px; background-color: #FFFFFF; padding: 14px;">
+              <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="color: #666666; font-size: 14px;">住所</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">（仮: 住所は差し替え）</div>
+              </div>
+              <div style="margin-top: 10px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="color: #666666; font-size: 14px;">目印</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">（仮: 最寄り/目印）</div>
+              </div>
+            </div>
+            <div style="margin-top: 14px; color: #999999; font-size: 12px; line-height: 1.6;">
+              電話番号/連絡先は必要に応じて追記（予約導線は主役にしない）
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 24px;">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 14px; color: #666666;">Google Map（基礎情報として）</div>
+              <div style="margin-top: 8px; color: #333333; font-size: 16px; font-weight: 700;">場所を確認</div>
+            </div>
+            <div style="color: #999999; font-size: 12px;">共有URLは後で差し替え（現状は仮）</div>
+          </div>
+          <div style="margin-top: 14px; width: 100%; height: 260px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC; border-radius: 12px;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 14px;">
+              [プレースホルダー: Google Map 埋め込み枠（仮URL）]
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 写真とInstagramを同一ブロックに集約して、空気感の証拠を連続体験させる -->
+    <section id="space" style="background-color: #FFFFFF; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">写真 & Instagram</h2>
+          <p style="margin: 0; color: #666666; font-size: 14px; max-width: 520px; line-height: 1.6;">
+            文章では伝えにくい「静けさ」を、写真と投稿の両方で確認できます。
+          </p>
+        </div>
+
+        <div style="margin-top: 32px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <!-- Photos -->
+          <div style="flex: 1 1 520px; min-width: 320px;">
+            <div style="border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 18px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="font-size: 14px; color: #666666;">写真ギャラリー</div>
+                <div style="font-size: 12px; color: #999999;">内観/作業風景を優先</div>
+              </div>
+              <div style="margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <div style="flex: 2 1 260px; min-width: 240px; height: 280px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 14px; text-align: center; padding: 14px;">[画像: 静かな店内（広角）]</span>
+                </div>
+                <div style="flex: 1 1 160px; min-width: 140px; height: 130px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">[画像: 作業席]</span>
+                </div>
+                <div style="flex: 1 1 160px; min-width: 140px; height: 130px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">[画像: コンクリート/木の質感]</span>
+                </div>
+                <div style="flex: 1 1 160px; min-width: 140px; height: 130px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">[画像: コーヒーの質感]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instagram -->
+          <div style="flex: 1 1 360px; min-width: 300px;">
+            <div style="border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 18px;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="font-size: 14px; color: #666666;">Instagram</div>
+                <div style="font-size: 12px; color: #999999;">ギャラリー的に埋め込み想定</div>
+              </div>
+
+              <div style="margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <a href="#" style="text-decoration: none; background-color: #333333; color: #FFFFFF; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-flex; align-items: center; gap: 10px;">
+                  <span>インスタを見る（リンク差し替え）</span>
+                </a>
+                <div style="align-self: center; color: #999999; font-size: 12px;">アカウントURLは確定後に更新</div>
+              </div>
+
+              <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 席/作業]</span>
+                </div>
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: コーヒー]</span>
+                </div>
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 店内]</span>
+                </div>
+                <div style="flex: 1 1 140px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                  <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 期間限定]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 最後にお知らせをコンパクトにまとめ、再導線とする（セクション数を抑える） -->
+    <section id="footer" style="background-color: #FFFFFF; padding: 64px 40px 80px; border-top: 1px solid #DDDDDD;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1 1 320px; min-width: 280px;">
+            <div style="font-size: 14px; color: #666666;">Working Coffee</div>
+            <div style="margin-top: 10px; font-size: 16px; font-weight: 700;">この静寂が、いちばんの贅沢。</div>
+            <div style="margin-top: 10px; color: #666666; font-size: 14px; line-height: 1.8;">
+              メニュー / 写真 / Instagram / お知らせで、来店の気持ちを固めてください。
+            </div>
+          </div>
+
+          <div style="flex: 1 1 420px; min-width: 300px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 20px;">
+            <div style="font-size: 14px; color: #666666;">お知らせ（更新予定）</div>
+            <div style="margin-top: 14px; border-top: 1px solid #DDDDDD;">
+              <div style="padding-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline;">
+                <div style="font-size: 12px; color: #999999; min-width: 120px;">2026.03.23</div>
+                <div style="flex: 1; min-width: 220px;">
+                  <div style="font-size: 16px; font-weight: 700; color: #333333; line-height: 1.4;">オープンのお知らせ</div>
+                  <div style="margin-top: 8px; font-size: 14px; color: #666666; line-height: 1.8;">メニュー/営業時間など最新情報はこちら（内容差し替え）</div>
+                </div>
+              </div>
+
+              <div style="padding-top: 16px; padding-bottom: 16px; display: flex; gap: 12px; flex-wrap: wrap; align-items: baseline; border-top: 1px solid #DDDDDD;">
+                <div style="font-size: 12px; color: #999999; min-width: 120px;">期間限定</div>
+                <div style="flex: 1; min-width: 220px;">
+                  <div style="font-size: 16px; font-weight: 700; color: #333333; line-height: 1.4;">期間限定メニュー</div>
+                  <div style="margin-top: 8px; font-size: 14px; color: #666666; line-height: 1.8;">画像はメニュー/Instagramで強調（内容差し替え）</div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 14px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="#info" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                営業時間・情報へ
+              </a>
+              <a href="#space" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                写真/Instagramへ
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; height: 1px; background-color: #DDDDDD;"></div>
+        <div style="margin-top: 16px; color: #999999; font-size: 12px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;">
+          <div>© 2026 Working Coffee. All rights reserved.（表記は差し替え）</div>
+          <div style="color: #999999;">Instagramリンクは本番で確定</div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working Coffee - ワイヤーフレーム</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background-color: #FFFFFF; color: #333333;">
+  <!--
+    WIREFRAME STRATEGY: Working Coffee
+
+    ターゲット: カフェで作業をするのが好きな人（短時間で雰囲気と実用情報を確認して判断したい）
+    主目的: 来店の気持ちを固める（予約導線ではなく、空気感の証拠 + メニュー/時間/基礎情報）
+
+    セクション順序の設計根拠:
+    1. Hero（静寂の価値を即時提示）: 最初に「自分向け」と感じさせる
+    2. コンセプト（静けさ×作業向き）: 読ませるより、納得感を作る
+    3. メニュー（主力/期間限定を画像で強調）: 来店後の期待を具体化
+    4. 営業時間・店舗情報（Mapは基礎情報として）: 行ける/行くイメージを確定
+    5. 写真ギャラリー（空気感の証拠）: 体験の裏付け
+    6. Instagram（更新性の補強）: 「今の空気」を見せて再訪動機を作る
+    7. お知らせ（最新性の回収）: オープン後の情報を集約
+    8. フッター（迷った時の再導線）: 基礎情報とSNS導線の再提示
+
+    導線設計:
+    - ユーザーの心理フロー: 興味→雰囲気の体感→具体の納得（メニュー/店内）→最新性→行動可能性（時間/地図確認）
+  -->
+
+  <!-- ヘッダー（簡易）: ファーストビューへの集中を邪魔しない範囲で、回遊の道しるべだけ置く -->
+  <header style="border-bottom: 1px solid #DDDDDD; background-color: #FFFFFF;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 36px; height: 36px; border-radius: 8px; border: 1px solid #DDDDDD; background-color: #F5F5F5; display: flex; align-items: center; justify-content: center;">
+          <!-- simple coffee cup icon (grayscale) -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 7h10v6a5 5 0 0 1-5 5H9a2 2 0 0 1-2-2V7Z" stroke="#333333" stroke-width="1.6" />
+            <path d="M17 9h2a3 3 0 0 1 0 6h-2" stroke="#333333" stroke-width="1.6" />
+            <path d="M9 3c0 1 .8 1.8 1.8 1.8" stroke="#333333" stroke-width="1.6" stroke-linecap="round" />
+            <path d="M13 3c0 1 .8 1.8 1.8 1.8" stroke="#333333" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div>
+          <div style="font-size: 14px; color: #666666; line-height: 1.2;">Working Coffee</div>
+          <div style="font-size: 16px; font-weight: 700; line-height: 1.2;">Web Site</div>
+        </div>
+      </div>
+
+      <nav style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="#menu" style="text-decoration: none; color: #333333; font-size: 14px;">メニュー</a>
+        <a href="#info" style="text-decoration: none; color: #333333; font-size: 14px;">営業時間・情報</a>
+        <a href="#gallery" style="text-decoration: none; color: #333333; font-size: 14px;">写真</a>
+        <a href="#instagram" style="text-decoration: none; color: #333333; font-size: 14px;">Instagram</a>
+        <a href="#news" style="text-decoration: none; color: #333333; font-size: 14px;">お知らせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 意図: ファーストビューで「誰の・何の問題を解決するか」を端的に伝え、CTAへ誘導する -->
+    <section id="hero" style="background-color: #F5F5F5; padding: 80px 40px 48px;">
+      <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: stretch; justify-content: space-between; gap: 48px; flex-wrap: wrap;">
+        <div style="flex: 1 1 420px; min-width: 320px;">
+          <div style="display: inline-block; padding: 8px 12px; border: 1px solid #DDDDDD; background-color: #FFFFFF; border-radius: 999px; font-size: 12px; color: #666666; margin-bottom: 24px;">
+            この静寂が、いちばんの贅沢。
+          </div>
+          <h1 style="margin: 0; font-size: 64px; line-height: 1.05; letter-spacing: -0.02em;">Working Coffee</h1>
+          <p style="margin: 16px 0 0; font-size: 16px; color: #666666; max-width: 520px; line-height: 1.8;">
+            コンクリートのスタイリッシュさと、どこか暖かい空気。<br>
+            作業が好きな人のための“静けさ”を、メニューと写真で確かめてください。
+          </p>
+
+          <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px;">
+            <a href="#menu" style="text-decoration: none; background-color: #333333; color: #FFFFFF; padding: 12px 18px; border-radius: 10px; font-size: 14px; display: inline-block;">
+              メニューを見る
+            </a>
+            <a href="#info" style="text-decoration: none; background-color: #FFFFFF; color: #333333; padding: 12px 18px; border-radius: 10px; font-size: 14px; border: 1px solid #DDDDDD; display: inline-block;">
+              営業時間・情報
+            </a>
+            <a href="#gallery" style="text-decoration: none; background-color: #FFFFFF; color: #333333; padding: 12px 18px; border-radius: 10px; font-size: 14px; border: 1px solid #DDDDDD; display: inline-block;">
+              写真で雰囲気
+            </a>
+          </div>
+        </div>
+
+        <!-- hero image placeholder (required) -->
+        <div style="flex: 1 1 420px; min-width: 320px;">
+          <div style="width: 100%; height: 420px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC; border-radius: 16px;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 16px;">
+              [画像プレースホルダー: 静かな店内（コンクリート剥き出し + 作業スペース）]（1440×800 想定）
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: トンマナの方向性を短く言語化し、「自分向け」と感じる根拠を作る -->
+    <section id="concept" style="background-color: #FFFFFF; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">静けさを、設計する。</h2>
+        <p style="margin: 16px 0 0; color: #666666; font-size: 16px; line-height: 1.8; max-width: 720px;">
+          作業が好きな人が“集中できそう”と感じる空気感。<br>
+          スタイリッシュな見た目だけで終わらず、どこか暖かさが残るように。
+        </p>
+
+        <div style="margin-top: 48px; display: flex; gap: 32px; flex-wrap: wrap;">
+          <div style="flex: 1 1 360px; min-width: 320px;">
+            <div style="width: 100%; height: 280px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC; border-radius: 16px;">
+              <span style="color: #999999; font-size: 14px; text-align: center; padding: 16px;">
+                [画像プレースホルダー: コンクリートと木の温度感が分かる内観写真]
+              </span>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 360px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; padding: 24px; background-color: #F5F5F5;">
+            <div style="display: flex; gap: 12px; align-items: flex-start;">
+              <div style="width: 32px; height: 32px; border: 1px solid #DDDDDD; border-radius: 10px; background-color: #FFFFFF; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 3v18" stroke="#333333" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M7 8c1.5-1.5 3.2-2.2 5-2.2S15.5 6.5 17 8" stroke="#333333" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="M7 16c1.5 1.5 3.2 2.2 5 2.2s3.5-.7 5-2.2" stroke="#333333" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3 style="margin: 0; font-size: 20px; line-height: 1.4;">落ち着きの“証拠”を出す</h3>
+                <p style="margin: 8px 0 0; color: #666666; font-size: 14px; line-height: 1.8;">
+                  文章で説得しすぎず、写真とInstagramで体感を支えます。
+                </p>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px; height: 1px; background-color: #DDDDDD;"></div>
+
+            <div style="margin-top: 18px; display: flex; gap: 16px; flex-wrap: wrap;">
+              <div style="flex: 1 1 140px; min-width: 140px; border: 1px solid #DDDDDD; border-radius: 12px; padding: 14px; background-color: #FFFFFF;">
+                <div style="font-size: 12px; color: #666666;">見るもの</div>
+                <div style="margin-top: 6px; font-size: 14px; color: #333333; font-weight: 700;">メニュー / 時間 / 写真</div>
+              </div>
+              <div style="flex: 1 1 140px; min-width: 140px; border: 1px solid #DDDDDD; border-radius: 12px; padding: 14px; background-color: #FFFFFF;">
+                <div style="font-size: 12px; color: #666666;">感じるもの</div>
+                <div style="margin-top: 6px; font-size: 14px; color: #333333; font-weight: 700;">静けさ / 集中</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 来店判断の中核。主力・期間限定は画像で強調して見やすさを作る -->
+    <section id="menu" style="background-color: #F5F5F5; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+          <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">メニュー</h2>
+          <p style="margin: 0; color: #666666; font-size: 14px;">
+            基本はテキストで整理。主力・期間限定は大きめの画像で。
+          </p>
+        </div>
+
+        <div style="margin-top: 32px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <!-- Card grid: 6 items -->
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">
+                [画像: 主力商品「シグネチャー ブレンド」]
+              </span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">シグネチャー ブレンド</div>
+              <div style="margin-top: 8px; color: #666666; font-size: 14px;">料金: 価格は差し替え</div>
+              <div style="margin-top: 10px; height: 1px; background-color: #DDDDDD;"></div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">
+                豆の特徴が伝わる、落ち着く味。
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">
+                [画像: 主力「カフェラテ」]
+              </span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">カフェラテ</div>
+              <div style="margin-top: 8px; color: #666666; font-size: 14px;">料金: 価格は差し替え</div>
+              <div style="margin-top: 10px; height: 1px; background-color: #DDDDDD;"></div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">
+                ふわっとした口当たりで作業時間に。
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">
+                [画像: 主力「ドリップ」]
+              </span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">主力</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">ドリップ</div>
+              <div style="margin-top: 8px; color: #666666; font-size: 14px;">料金: 価格は差し替え</div>
+              <div style="margin-top: 10px; height: 1px; background-color: #DDDDDD;"></div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">
+                日替わりの香りで、静かな時間を。
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">
+                [画像: 期間限定（主役）]
+              </span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">期間限定</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">期間限定メニュー</div>
+              <div style="margin-top: 8px; color: #666666; font-size: 14px;">料金: 価格は差し替え</div>
+              <div style="margin-top: 10px; height: 1px; background-color: #DDDDDD;"></div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">
+                [短い説明] いつからいつまで、など。
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">
+                [画像: フード（例: ケーキ/軽食）]
+              </span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">軽食</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">フードメニュー</div>
+              <div style="margin-top: 8px; color: #666666; font-size: 14px;">料金: 価格は差し替え</div>
+              <div style="margin-top: 10px; height: 1px; background-color: #DDDDDD;"></div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">
+                作業の合間にちょうどいい。
+              </div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 260px; min-width: 240px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; overflow: hidden;">
+            <div style="height: 140px; background-color: #E0E0E0; border-bottom: 1px solid #DDDDDD; display: flex; align-items: center; justify-content: center;">
+              <span style="color: #999999; font-size: 13px; text-align: center; padding: 10px;">
+                [画像: 期間限定（2枠目）]
+              </span>
+            </div>
+            <div style="padding: 16px;">
+              <div style="font-size: 12px; color: #666666;">期間限定</div>
+              <div style="margin-top: 6px; font-size: 16px; font-weight: 700; line-height: 1.4;">別の期間限定</div>
+              <div style="margin-top: 8px; color: #666666; font-size: 14px;">料金: 価格は差し替え</div>
+              <div style="margin-top: 10px; height: 1px; background-color: #DDDDDD;"></div>
+              <div style="margin-top: 10px; color: #666666; font-size: 13px; line-height: 1.6;">
+                [短い説明] 写真が主役になる枠。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; border-top: 1px solid #DDDDDD; padding-top: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+          <div style="font-size: 14px; color: #666666;">
+            ※ メニュー実データ・画像は後で差し替え（主力/期間限定は画像優先）
+          </div>
+          <a href="#news" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px;">
+            期間限定はお知らせでチェック
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 行ける/行くイメージを確定。Mapは主CTAにせず“基礎情報”として整列させる -->
+    <section id="info" style="background-color: #FFFFFF; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">営業時間 & 店舗情報</h2>
+        <p style="margin: 16px 0 0; color: #666666; font-size: 16px; line-height: 1.8; max-width: 720px;">
+          メニューと写真の“納得”を、来店の可否に変えてください。
+        </p>
+
+        <div style="margin-top: 48px; display: flex; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1 1 360px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 24px;">
+            <div style="font-size: 14px; color: #666666;">営業時間</div>
+            <div style="margin-top: 12px; border: 1px solid #DDDDDD; border-radius: 12px; overflow: hidden; background-color: #FFFFFF;">
+              <div style="display: flex; justify-content: space-between; padding: 12px 14px; border-bottom: 1px solid #DDDDDD;">
+                <div style="color: #666666; font-size: 14px;">平日</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">7:00 - 20:00</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; padding: 12px 14px;">
+                <div style="color: #666666; font-size: 14px;">休日（祝）</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">8:00 - 20:00</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px; color: #999999; font-size: 12px; line-height: 1.6;">
+              定休日がある場合はここに追記（現状は未記載）
+            </div>
+          </div>
+
+          <div style="flex: 1 1 360px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 24px;">
+            <div style="font-size: 14px; color: #666666;">店舗情報</div>
+            <div style="margin-top: 12px; border: 1px solid #DDDDDD; border-radius: 12px; background-color: #FFFFFF; padding: 14px;">
+              <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="color: #666666; font-size: 14px;">住所</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">（仮: 住所は差し替え）</div>
+              </div>
+              <div style="margin-top: 10px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="color: #666666; font-size: 14px;">目印</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">（仮: 最寄り/目印）</div>
+              </div>
+              <div style="margin-top: 10px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                <div style="color: #666666; font-size: 14px;">連絡先</div>
+                <div style="color: #333333; font-size: 14px; font-weight: 700;">（仮: 電話/メール）</div>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px; color: #999999; font-size: 12px; line-height: 1.6;">
+              必要な項目だけ表示（予約は主役にしない方針）
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 24px;">
+          <!-- Map placeholder -->
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+            <div>
+              <div style="font-size: 14px; color: #666666;">Google Map（基礎情報として）</div>
+              <div style="margin-top: 8px; color: #333333; font-size: 16px; font-weight: 700;">場所を確認</div>
+            </div>
+            <div style="color: #999999; font-size: 12px;">URLは後で差し替え（現状は仮）</div>
+          </div>
+
+          <div style="margin-top: 14px; width: 100%; height: 260px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC; border-radius: 12px;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 14px;">
+              [プレースホルダー: Google Map 埋め込み枠（仮URL）]
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 写真で静けさの証拠を提示し、来店イメージを強化する -->
+    <section id="gallery" style="background-color: #F5F5F5; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">写真ギャラリー</h2>
+        <p style="margin: 16px 0 0; color: #666666; font-size: 16px; line-height: 1.8; max-width: 720px;">
+          文章より先に、空気感を“見て”納得してください。
+        </p>
+
+        <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+          <div style="flex: 1 1 360px; min-width: 320px; height: 320px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 14px;">
+              [画像: 作業風景（静かな席）]
+            </span>
+          </div>
+          <div style="flex: 1 1 240px; min-width: 220px; height: 152px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">
+              [画像: 店内の雰囲気（コンクリート）]
+            </span>
+          </div>
+          <div style="flex: 1 1 240px; min-width: 220px; height: 152px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">
+              [画像: 窓辺/光の入り方]
+            </span>
+          </div>
+        </div>
+
+        <div style="margin-top: 16px; display: flex; gap: 16px; flex-wrap: wrap;">
+          <div style="flex: 1 1 240px; min-width: 220px; height: 170px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">
+              [画像: コーヒーの質感（カップ/豆）]
+            </span>
+          </div>
+          <div style="flex: 1 1 240px; min-width: 220px; height: 170px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">
+              [画像: 静かな店内（空席イメージ）]
+            </span>
+          </div>
+          <div style="flex: 1 1 240px; min-width: 220px; height: 170px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 16px; display: flex; align-items: center; justify-content: center;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 12px;">
+              [画像: 席の配置（作業向き）]
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: Instagramを“ギャラリー的に”見せ、更新性で納得を続かせる -->
+    <section id="instagram" style="background-color: #FFFFFF; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1 1 420px; min-width: 320px;">
+            <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">Instagram</h2>
+            <p style="margin: 16px 0 0; color: #666666; font-size: 16px; line-height: 1.8;">
+              投稿をギャラリー的に埋め込み、写真ギャラリーを“現在の空気”で補強します。
+            </p>
+            <div style="margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="#" style="text-decoration: none; background-color: #333333; color: #FFFFFF; padding: 12px 18px; border-radius: 10px; font-size: 14px; display: inline-flex; align-items: center; gap: 10px;">
+                <span>インスタを見る（リンク差し替え）</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5Z" stroke="#FFFFFF" stroke-width="1.6"/>
+                  <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="#FFFFFF" stroke-width="1.6"/>
+                  <path d="M17.5 6.5h.01" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </a>
+              <div style="align-self: center; color: #999999; font-size: 12px;">アカウントURLは後で確定</div>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 420px; min-width: 320px; border: 1px solid #DDDDDD; border-radius: 16px; padding: 18px; background-color: #F5F5F5;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;">
+              <div style="font-size: 14px; color: #666666;">投稿ギャラリー（仮）</div>
+              <div style="font-size: 12px; color: #999999;">4枚表示想定</div>
+            </div>
+
+            <div style="margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap;">
+              <div style="flex: 1 1 160px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 席/作業]</span>
+              </div>
+              <div style="flex: 1 1 160px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: コーヒー]</span>
+              </div>
+              <div style="flex: 1 1 160px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 店内]</span>
+              </div>
+              <div style="flex: 1 1 160px; min-width: 140px; height: 120px; background-color: #E0E0E0; border: 1px dashed #CCCCCC; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+                <span style="color: #999999; font-size: 12px; text-align: center; padding: 10px;">[Instagram: 期間限定]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: オープン後の最新情報をコンパクトに提示し、再訪動機を作る -->
+    <section id="news" style="background-color: #F5F5F5; padding: 80px 40px;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <h2 style="margin: 0; font-size: 32px; line-height: 1.3;">お知らせ</h2>
+        <p style="margin: 16px 0 0; color: #666666; font-size: 16px; line-height: 1.8; max-width: 720px;">
+          オープン情報や変更など、最新の更新をまとめます。
+        </p>
+
+        <div style="margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap;">
+          <article style="flex: 1 1 320px; min-width: 280px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 20px;">
+            <div style="font-size: 12px; color: #666666;">2026.03.23</div>
+            <div style="margin-top: 10px; font-size: 16px; font-weight: 700; line-height: 1.4;">オープンのお知らせ</div>
+            <div style="margin-top: 10px; color: #666666; font-size: 14px; line-height: 1.8;">
+              Working Coffee がオープンしました。メニュー・営業時間など最新情報はこちら。
+            </div>
+            <div style="margin-top: 14px;">
+              <a href="#" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                詳細を見る（後で差し替え）
+              </a>
+            </div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 280px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 20px;">
+            <div style="font-size: 12px; color: #666666;">2026.03.XX</div>
+            <div style="margin-top: 10px; font-size: 16px; font-weight: 700; line-height: 1.4;">期間限定メニュー</div>
+            <div style="margin-top: 10px; color: #666666; font-size: 14px; line-height: 1.8;">
+              期間限定の主役商品をお知らせします（画像は差し替え想定）。
+            </div>
+            <div style="margin-top: 14px;">
+              <a href="#" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                詳細を見る（後で差し替え）
+              </a>
+            </div>
+          </article>
+
+          <article style="flex: 1 1 320px; min-width: 280px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #FFFFFF; padding: 20px;">
+            <div style="font-size: 12px; color: #666666;">2026.03.XX</div>
+            <div style="margin-top: 10px; font-size: 16px; font-weight: 700; line-height: 1.4;">営業時間・臨時対応</div>
+            <div style="margin-top: 10px; color: #666666; font-size: 14px; line-height: 1.8;">
+              祝日や臨時休業など、来店判断に関わる更新を掲載。
+            </div>
+            <div style="margin-top: 14px;">
+              <a href="#" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                詳細を見る（後で差し替え）
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 意図: 基本情報を最後に回収し、SNS/地図へ再誘導する -->
+    <section id="footer" style="background-color: #FFFFFF; padding: 64px 40px 80px; border-top: 1px solid #DDDDDD;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+          <div style="flex: 1 1 320px; min-width: 280px;">
+            <div style="font-size: 14px; color: #666666;">Working Coffee</div>
+            <div style="margin-top: 10px; font-size: 16px; font-weight: 700;">この静寂が、いちばんの贅沢。</div>
+            <div style="margin-top: 10px; color: #666666; font-size: 14px; line-height: 1.8;">
+              メニュー / 写真 / Instagram / お知らせで、来店の気持ちを固めてください。
+            </div>
+          </div>
+
+          <div style="flex: 1 1 320px; min-width: 280px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 20px;">
+            <div style="font-size: 14px; color: #666666;">基本情報（要点）</div>
+            <div style="margin-top: 12px; color: #333333; font-size: 14px; line-height: 1.8;">
+              <div>平日: 7:00 - 20:00</div>
+              <div>休日（祝）: 8:00 - 20:00</div>
+              <div style="margin-top: 8px; color: #666666;">住所/連絡先は実データで差し替え</div>
+            </div>
+            <div style="margin-top: 14px;">
+              <a href="#info" style="text-decoration: none; border: 1px solid #DDDDDD; background-color: #FFFFFF; color: #333333; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-block;">
+                営業時間・情報へ
+              </a>
+            </div>
+          </div>
+
+          <div style="flex: 1 1 320px; min-width: 280px; border: 1px solid #DDDDDD; border-radius: 16px; background-color: #F5F5F5; padding: 20px;">
+            <div style="font-size: 14px; color: #666666;">SNS</div>
+            <div style="margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+              <a href="#instagram" style="text-decoration: none; background-color: #333333; color: #FFFFFF; padding: 10px 14px; border-radius: 10px; font-size: 14px; display: inline-flex; align-items: center; gap: 10px;">
+                <span>Instagramへ</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5Z" stroke="#FFFFFF" stroke-width="1.6"/>
+                  <path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="#FFFFFF" stroke-width="1.6"/>
+                  <path d="M17.5 6.5h.01" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </a>
+              <div style="color: #999999; font-size: 12px;">リンクは実データで差し替え</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 24px; height: 1px; background-color: #DDDDDD;"></div>
+        <div style="margin-top: 16px; color: #999999; font-size: 12px;">
+          © 2026 Working Coffee. All rights reserved.（表記は差し替え）
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working Cofee - ワイヤーフレーム</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', sans-serif; background-color: #FFFFFF; color: #333333;">
+
+<!--
+  WIREFRAME STRATEGY: Working Cofee
+
+  ターゲット: 20代前半〜30代後半。カフェで作業するのが好きな人が、新店の雰囲気と実用情報を短時間で把握したい。
+  主目的: 来店したいと思ってもらうこと、Instagram を見てもらうこと。
+
+  セクション順序の設計根拠:
+  1. Hero — ファーストビューで「作業向けカフェ」の空気と店名を一瞬で伝える。写真面積を大きくし、コピーは短く（本番はタイポと余白で洗練）。
+  2. Concept — 長文ではなく、見出し＋一行で「誰のための店か」を補足。隣接ビジュアルで雰囲気を足す。
+  3. Menu — メニューはリストよりビジュアル優先のカード配置で「ここに来たら何があるか」を感じさせる。
+  4. Gallery — 店内の信頼・没入。サイズ差のあるグリッドで視線の強弱（本番は写真のリズム）。
+  5. News — オープン・変更など最新情報をコンパクトに。実用ブロックの直前に配置。
+  6. Access — 営業時間・住所・地図で来店を可能にする。実装時は Google マップ埋め込み想定。
+  7. Footer — Instagram への明確な導線と、地図セクションへの再誘導文言。
+
+  導線設計:
+  興味（ヒーロー・コンセプト）→ 理解・納得（メニュー・ギャラリー）→ 最新性（お知らせ）→ 行動（アクセス）→ SNS（フッター）
+-->
+
+  <!-- 意図: スクロール前にページ内の主要ブロックへ飛べるよう最小限の導線のみ。装飾はしない -->
+  <header style="border-bottom: 1px solid #DDDDDD; background-color: #FFFFFF; padding: 16px 40px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+      <span style="font-size: 18px; font-weight: 600; letter-spacing: 0.04em;">Working Cofee</span>
+      <nav style="display: flex; gap: 24px; flex-wrap: wrap;">
+        <a href="#concept" style="color: #666666; font-size: 14px; text-decoration: none;">コンセプト</a>
+        <a href="#menu" style="color: #666666; font-size: 14px; text-decoration: none;">メニュー</a>
+        <a href="#gallery" style="color: #666666; font-size: 14px; text-decoration: none;">店内</a>
+        <a href="#access" style="color: #666666; font-size: 14px; text-decoration: none;">アクセス</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 意図: 全面に近いビジュアルで「作業できる静かなカフェ」の空気を先に出す。テキストは店名と短いキャッチのみ -->
+  <section id="hero" style="position: relative;">
+    <div style="width: 100%; min-height: 560px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid #DDDDDD;">
+      <span style="color: #999999; font-size: 14px; text-align: center; padding: 0 24px;">[画像: 店内の奥行きと窓の光、ノートとコーヒーが写るワーカー向けカフェの全景]（1440×800）</span>
+    </div>
+    <div style="max-width: 1200px; margin: -120px auto 0; padding: 0 40px 80px; position: relative; z-index: 1;">
+      <div style="background-color: #FFFFFF; border: 1px solid #DDDDDD; padding: 48px 56px; max-width: 560px;">
+        <h1 style="margin: 0 0 16px; font-size: 48px; font-weight: 600; letter-spacing: 0.06em; line-height: 1.2;">Working Cofee</h1>
+        <p style="margin: 0 0 32px; font-size: 18px; color: #666666; line-height: 1.6;">作業が好きな人のための、静かなカフェ。</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: center;">
+          <a href="#access" style="display: inline-block; padding: 14px 32px; background-color: #333333; color: #FFFFFF; font-size: 14px; text-decoration: none;">アクセスを見る</a>
+          <a href="#footer" style="display: inline-flex; align-items: center; gap: 8px; color: #666666; font-size: 14px; text-decoration: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#666666" stroke-width="1.5"/><circle cx="12" cy="12" r="3.5" fill="#666666"/></svg>
+            Instagram を見る
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 意図: 説明は最小限。余白とタイポの階層で「読ませない」構成をワイヤーで確認する -->
+  <section id="concept" style="padding: 80px 40px; background-color: #F5F5F5;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 64px; align-items: center;">
+      <div style="flex: 1 1 400px; min-width: 280px;">
+        <p style="margin: 0 0 16px; font-size: 13px; color: #999999; letter-spacing: 0.12em;">CONCEPT</p>
+        <h2 style="margin: 0 0 24px; font-size: 32px; font-weight: 600; line-height: 1.35;">集中できる時間を、<br>カフェの温度で。</h2>
+        <p style="margin: 0; font-size: 16px; color: #666666; line-height: 1.85; max-width: 440px;">長居して作業したい人へ。席の間隔、照明、音の設計まで、作業に寄り添う空間を目指しています。</p>
+      </div>
+      <div style="flex: 1 1 400px; min-width: 280px;">
+        <div style="width: 100%; height: 360px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+          <span style="color: #999999; font-size: 14px; text-align: center; padding: 0 16px;">[画像: 木製テーブルとノートPC、マグカップのクローズアップ — 落ち着いた質感]</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 意図: メニューはカードのビジュアルで「品揃えの雰囲気」を伝える。価格は補助テキスト程度 -->
+  <section id="menu" style="padding: 80px 40px; background-color: #FFFFFF;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="margin-bottom: 48px;">
+        <p style="margin: 0 0 16px; font-size: 13px; color: #999999; letter-spacing: 0.12em;">MENU</p>
+        <h2 style="margin: 0; font-size: 32px; font-weight: 600;">ドリンクと軽食</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px;">
+        <div style="flex: 1 1 300px; min-width: 260px;">
+          <div style="height: 240px; background-color: #E0E0E0; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 0 12px;">[画像: エスプレッソとラテアート]</span>
+          </div>
+          <h3 style="margin: 0 0 8px; font-size: 20px; font-weight: 600;">エスプレッソドリンク</h3>
+          <p style="margin: 0; font-size: 14px; color: #666666;">定番の焙煎豆を使用。テイクアウト可。</p>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 260px;">
+          <div style="height: 240px; background-color: #E0E0E0; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 0 12px;">[画像: 季節のドリンクとグラス]</span>
+          </div>
+          <h3 style="margin: 0 0 8px; font-size: 20px; font-weight: 600;">季節の一杯</h3>
+          <p style="margin: 0; font-size: 14px; color: #666666;">限定メニューはお知らせで更新。</p>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 260px;">
+          <div style="height: 240px; background-color: #E0E0E0; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 0 12px;">[画像: サンドイッチ・スコーンのプレート]</span>
+          </div>
+          <h3 style="margin: 0 0 8px; font-size: 20px; font-weight: 600;">軽食</h3>
+          <p style="margin: 0; font-size: 14px; color: #666666;">作業の合間に食べるのにちょうどよい量。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 意図: ギャラリーは大小の差でリズムをつくる。本番では同一トーンの写真で統一感を出す -->
+  <section id="gallery" style="padding: 80px 40px; background-color: #F5F5F5;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="margin-bottom: 48px;">
+        <p style="margin: 0 0 16px; font-size: 13px; color: #999999; letter-spacing: 0.12em;">SPACE</p>
+        <h2 style="margin: 0; font-size: 32px; font-weight: 600;">店内の様子</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+        <div style="flex: 2 1 400px; min-width: 280px;">
+          <div style="height: 480px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 0 16px;">[画像: カウンター席から見た店内の広角 — 奥行きと席の余裕]</span>
+          </div>
+        </div>
+        <div style="flex: 1 1 300px; min-width: 260px; display: flex; flex-direction: column; gap: 24px;">
+          <div style="height: 228px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 0 12px;">[画像: 電源のあるボックス席]</span>
+          </div>
+          <div style="height: 228px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+            <span style="color: #999999; font-size: 13px; text-align: center; padding: 0 12px;">[画像: 棚の本とコーヒー豆のディスプレイ]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 意図: お知らせは一覧性を優先し、情報量を抑えてスキャンしやすくする -->
+  <section id="news" style="padding: 80px 40px; background-color: #FFFFFF;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="margin-bottom: 40px;">
+        <p style="margin: 0 0 16px; font-size: 13px; color: #999999; letter-spacing: 0.12em;">NEWS</p>
+        <h2 style="margin: 0; font-size: 32px; font-weight: 600;">お知らせ</h2>
+      </div>
+      <div style="border-top: 1px solid #DDDDDD;">
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 24px 0; border-bottom: 1px solid #DDDDDD;">
+          <span style="font-size: 14px; color: #999999; min-width: 100px;">2025.03.20</span>
+          <div style="flex: 1; min-width: 200px;">
+            <p style="margin: 0; font-size: 16px;">グランドオープンしました</p>
+            <p style="margin: 8px 0 0; font-size: 14px; color: #666666;">作業席のご利用にあたっての注意事項は店内に掲示しています。</p>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 24px 0; border-bottom: 1px solid #DDDDDD;">
+          <span style="font-size: 14px; color: #999999; min-width: 100px;">2025.03.15</span>
+          <div style="flex: 1; min-width: 200px;">
+            <p style="margin: 0; font-size: 16px;">春のメニューを追加しました</p>
+            <p style="margin: 8px 0 0; font-size: 14px; color: #666666;">詳細は Instagram でもご案内しています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 意図: 実用情報を一塊に。地図はiframeの代わりに領域枠を示し、実装時に埋め込み -->
+  <section id="access" style="padding: 80px 40px; background-color: #F5F5F5;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="margin-bottom: 48px;">
+        <p style="margin: 0 0 16px; font-size: 13px; color: #999999; letter-spacing: 0.12em;">ACCESS</p>
+        <h2 style="margin: 0; font-size: 32px; font-weight: 600;">アクセス・営業時間</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start;">
+        <div style="flex: 1 1 320px; min-width: 260px;">
+          <h3 style="margin: 0 0 16px; font-size: 20px; font-weight: 600;">営業時間</h3>
+          <p style="margin: 0 0 8px; font-size: 16px; color: #333333;">平日 8:00 — 20:00 / 土日祝 9:00 — 19:00</p>
+          <p style="margin: 0 0 32px; font-size: 14px; color: #666666;">定休日: 火曜日（※変更時はお知らせでお知らせします）</p>
+          <h3 style="margin: 0 0 16px; font-size: 20px; font-weight: 600;">所在地</h3>
+          <p style="margin: 0; font-size: 16px; color: #333333;">〒000-0000 東京都〇〇区〇〇 1-2-3 〇〇ビル 1F</p>
+          <p style="margin: 16px 0 0; font-size: 14px; color: #666666;">最寄り: ○○駅 徒歩7分</p>
+        </div>
+        <div style="flex: 2 1 400px; min-width: 280px;">
+          <div style="width: 100%; height: 360px; background-color: #E0E0E0; display: flex; align-items: center; justify-content: center; border: 1px dashed #CCCCCC;">
+            <span style="color: #999999; font-size: 14px; text-align: center; padding: 0 16px;">[Google マップ埋め込みエリア — ピン付き地図]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 意図: ページ末尾で Instagram を再提示し、来店後の関係継続を促す -->
+  <footer id="footer" style="padding: 64px 40px 80px; background-color: #333333; color: #FFFFFF;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <p style="margin: 0 0 8px; font-size: 16px; font-weight: 600; letter-spacing: 0.08em;">Working Cofee</p>
+      <p style="margin: 0 0 32px; font-size: 14px; color: #CCCCCC;">最新情報は Instagram で発信中です。</p>
+      <div style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;">
+        <span style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 24px; border: 1px solid #666666; font-size: 14px; color: #FFFFFF;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#FFFFFF" stroke-width="1.5"/><circle cx="12" cy="12" r="3.5" fill="#FFFFFF"/></svg>
+          [Instagram プロフィールへ]
+        </span>
+        <a href="#access" style="color: #CCCCCC; font-size: 14px;">アクセスを再表示</a>
+      </div>
+      <p style="margin: 48px 0 0; font-size: 12px; color: #999999;">© 2025 Working Cofee</p>
+    </div>
+  </footer>
+
+</body>
+</html>
