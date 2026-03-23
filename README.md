@@ -1,6 +1,6 @@
 # web-studio
 
-Web制作の要件定義・デザイン・実装を3フェーズで進めるClaude Codeプラグインです。
+Web制作のヒアリング・要件定義・ワイヤーフレーム・ビジュアルデザイン・実装を4フェーズで進めるClaude Codeプラグインです。
 
 ## インストール
 
@@ -17,9 +17,10 @@ Webサイト・LP・コーポレートサイトの制作依頼をすると自動
 
 | フェーズ | 担当 | 成果物 |
 |---|---|---|
-| Phase 1: 要件定義 | ディレクター | `{project}/docs/requirements.md` |
-| Phase 2: デザイン | デザイナー | `{project}/design-draft.html` |
-| Phase 3: 実装 | エンジニア | `{project}/src/` |
+| Phase 1: ヒアリング＋要件定義 | ディレクター | `{project}/docs/context.md` `{project}/docs/requirements.md` |
+| Phase 2: ワイヤーフレーム | デザイナー | `{project}/wireframe.html` |
+| Phase 3: ビジュアルデザイン | デザイナー | `{project}/design-draft.html` |
+| Phase 4: 実装 | エンジニア | `{project}/src/` |
 
 各フェーズはユーザーの承認を得てから次へ進みます。
 

@@ -1,6 +1,6 @@
 {
   "name": "web-studio",
-  "description": "Web制作ワークフロープラグイン。要件定義（Phase 1）→ デザイン（Phase 2）→ 実装（Phase 3）の3フェーズでWebサイト・LP・コーポレートサイトを制作するためのスキルとエージェントを提供します。",
+  "description": "Web制作ワークフロープラグイン。ヒアリング＋要件定義（Phase 1）→ ワイヤーフレーム（Phase 2）→ ビジュアルデザイン（Phase 3）→ 実装（Phase 4）の4フェーズでWebサイト・LP・コーポレートサイトを制作するためのスキルとエージェントを提供します。",
   "version": "1.0.0",
   "author": {
     "name": "tat"
