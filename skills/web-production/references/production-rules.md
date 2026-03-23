@@ -14,21 +14,43 @@ Phase 4を開始する前に、必ず以下を確認する。
 1. **DESIGN.md（v2）の読み込み**: `{project}/docs/DESIGN.md` の確定値（カラーパレット・タイポグラフィ・スペーシング）を読み取り、`tailwind.config.ts` に反映する。DESIGN.md がデザインシステムの Single Source of Truth
 2. **デザイントークンの照合**: `design-draft.html`（複数ページの場合は `design-draft/` 以下のファイル群）の冒頭コメント（DESIGN TOKENS）と `DESIGN.md`（v2）の値が一致していることを確認する
 3. **セクション構成の把握**: 各 `design-draft` ファイルのセクション（`id`属性）を確認し、ページ構成とコンポーネント構成を決める
-4. **「人間が決めたこと」の保持**: 要件定義書の「🔒 ブランドの本質」セクションに記載のブランド価値観・トーン・CTAは、実装で変更しない
+4. **アニメーション・インタラクションの引き継ぎ**: `design-draft` の `<script>` と DESIGN TOKENS コメントの「Animation」欄を読み込み、同等の動きを実装する。CDN で実装していたライブラリは npm パッケージに切り替える
+5. **「人間が決めたこと」の保持**: 要件定義書の「🔒 ブランドの本質」セクションに記載のブランド価値観・トーン・CTAは、実装で変更しない
 
 ---
 
 ## 技術スタック
 
+ユーザーが明示的に指定した場合はその指示を優先する。
+指定がない場合のデフォルトは **Astro** とする。
+
+### デフォルト構成（Astro）
+
 | カテゴリ | 採用技術 |
 |----------|----------|
-| フレームワーク | Next.js 14+（App Router） |
-| スタイリング | Tailwind CSS v3+ |
+| フレームワーク | **Astro 4+** |
+| スタイリング | **Tailwind CSS v3+**（`@astrojs/tailwind`） |
 | 言語 | TypeScript |
 | パッケージマネージャー | pnpm（なければ npm） |
-| フォント | next/font（Google Fonts経由） |
-| 画像最適化 | next/image |
-| アイコン | lucide-react |
+| フォント | `@fontsource/*` または Astro の `<Font>` コンポーネント |
+| 画像最適化 | `astro:assets`（`<Image>` コンポーネント） |
+| アイコン | `astro-icon` または インラインSVG |
+| アニメーション | design-draft の実装方式を引き継ぐ（GSAP / CSS / Vanilla JS） |
+
+Astro を選ぶ理由:
+- コンテンツ中心のサイト（LP・コーポレート・ポートフォリオ）に最適
+- デフォルトでゼロJS（必要なところだけハイドレーション）
+- Tailwind との相性が良い
+- `.astro` ファイルで HTML + CSS + JS をコンポーネントとして管理できる
+
+### 代替構成（ユーザー指定時）
+
+| 指定 | 構成 |
+|---|---|
+| Next.js | Next.js 14+（App Router）+ Tailwind CSS + TypeScript + `next/image` + `next/font` |
+| React SPA | Vite + React + Tailwind CSS + TypeScript |
+| Vue | Nuxt 3 または Vite + Vue 3 + Tailwind CSS |
+| 静的HTML | HTML + CSS + JS（Vite でバンドル）|
 
 ---
 
