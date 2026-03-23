@@ -1,239 +1,123 @@
 # 🎨 ビジュアルデザイン出力ルール（Claude内部参照用）
 
-> Phase 3の成果物は `{project-name}/design-draft.html` に書き出します。
+> Phase 3 の成果物は以下のいずれかで書き出します。
+> - **1ページのみ:** `{project}/design-draft.html`
+> - **複数ページあり:** `{project}/design-draft/` フォルダ以下にページごとのHTMLファイル
 > ワイヤーフレーム（Phase 2）が承認された後にのみ実行する。
 
-**このフェーズの目標: ワイヤーフレームと見比べたとき、「全く別物だ」と感じるレベルに仕上げる。**
-グレースケールの骨格に、色・光・奥行き・タイポグラフィ・質感を加え、ユーザーの感情を動かすビジュアルにする。
+---
+
+## このフェーズでのあなたの役割
+
+あなたは今、Web制作会社のシニアデザイナーです。
+クライアントのことを深く理解し、そのブランドに命を吹き込む仕事をします。
+
+「ルールに沿った正解」を出すのではなく、「このプロジェクトにしかない表現」を考えてください。
+ワイヤーフレームはページの骨格です。あなたの仕事はその骨格に魂を入れることです。
 
 ---
 
-## デザイン開始前の必須読み込み
+## デザイン着手前に全ファイルを読み込む
+
+以下を必ず読み込んでから、**一切コードを書く前に**設計フェーズに入ること。
 
 1. `{project}/docs/context.md` — 事業背景・AIの判断基準
-2. `{project}/docs/requirements.md` — ターゲット・CTA
-3. `{project}/docs/DESIGN.md` — カラー方向性・世界観・参考サイト・Do's/Don'ts
-4. `{project}/wireframe.html` — 承認済みの構造（セクション順序は維持する）
+2. `{project}/docs/requirements.md` — ターゲット・CTA・ユーザーの体験ストーリー
+3. `{project}/docs/DESIGN.md` — 世界観・カラー方向性・参考サイト・Do's/Don'ts
+4. `{project}/wireframe.html` または `{project}/wireframe/` 以下の**全ファイル** — 承認済みの構造
+
+**ワイヤーフレームはデザインの骨格であり、前提。**
+セクションの順序・構成・情報の配置はワイヤーフレームを踏襲する。
+変えるのは「見た目・色・タイポグラフィ・質感・空気感」であり、構造を無断で組み替えない。
+
+**複数ページのワイヤーがある場合は、同じページ数分のデザインファイルを作成する。**
+`wireframe/index.html` → `design-draft/index.html`、`wireframe/about.html` → `design-draft/about.html` のように対応させる。
 
 ---
 
-## ビジュアルデザインの原則
+## デザインを始める前に自問する
 
-### ワイヤーフレームとの差異を意識的に作る
+コードを書く前に、以下の問いに答えること。答えが出てから手を動かす。
 
-ワイヤーフレームは「構造の設計図」、ビジュアルデザインは「体験の完成形」。
-以下の6軸で変換を行う：
+**ブランドの本質**
+- このサイトを見た人に、最初の3秒で何を感じてほしいか？
+- このブランドを一言で言うと何か？それをビジュアルでどう表現するか？
+- DESIGN.md の世界観・参考サイトから、どんな「空気感」が見えるか？
 
-| 軸 | ワイヤーフレーム | ビジュアルデザイン |
-|---|---|---|
-| **色** | グレースケールのみ | ブランドカラー・背景色・コントラスト |
-| **タイポ** | 標準ウェイト | 太さ・字間・行間で情報の強弱を作る |
-| **余白** | 均一なパディング | 密度の差でリズムと呼吸を作る |
-| **背景** | 白 / 薄グレー | セクションごとに異なる背景色・グラデーション |
-| **奥行き** | なし | shadow・border・gradient で層を作る |
-| **質感** | なし | 微妙なノイズ・グラデーション・accent要素 |
+**ターゲットへの共鳴**
+- このサイトを訪れるユーザーはどんな人で、何を期待しているか？
+- そのユーザーの感情にどう響けば、CTA まで自然に導けるか？
+- requirements.md の体験ストーリーを読んで、どんな感情の流れを設計するか？
+
+**このプロジェクト固有の表現**
+- 参考サイトの「好きな点」は何か？その本質を取り込みつつ、どう独自にするか？
+- 避けたいこと（Do's/Don'ts）を踏まえて、何を「やらない」と決めるか？
+- このデザインが完成したとき、クライアントが「これだ」と感じるものは何か？
 
 ---
 
-## ビジュアル変換の技法カタログ
+## デザインの意思決定
 
-> ⚠ 以下のコード例は「技法のデモ」です。色・フォント・レイアウトの具体値は必ず DESIGN.md と context.md から導く。例の色（インディゴ等）をそのまま流用しない。
+上記の問いへの答えを踏まえ、以下を自分で決定する。
+**デフォルトや「よくある選択」ではなく、このプロジェクトに最適な選択をすること。**
 
-### 技法 1: ダーク背景 Hero（信頼感・高級感・テック系に有効）
-
-```html
-<!-- 色は DESIGN.md の Primary/Background から置き換えること -->
-<section id="hero" style="background-color: [DESIGN.md の背景色]; min-height: 90vh;
-  display: flex; align-items: center; padding: 0 40px; position: relative; overflow: hidden;">
-
-  <!-- 背景装飾: ブランドカラーの淡いグラデーション -->
-  <div style="position: absolute; top: 0; right: 0; width: 60%; height: 100%;
-    background: linear-gradient(135deg, rgba([R,G,B of primary],0.15) 0%, transparent 70%);
-    pointer-events: none;"></div>
-
-  <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
-    <!-- 上部の小さいラベル: アクセントカラーで -->
-    <p style="margin: 0 0 16px; font-size: 13px; color: [アクセントカラー]; letter-spacing: 0.18em; font-weight: 600;">
-      タグライン
-    </p>
-    <h1 style="margin: 0 0 24px; font-size: 72px; font-weight: 800; line-height: 1.05; letter-spacing: -0.03em; color: #FFFFFF;">
-      キャッチコピー
-    </h1>
-    <p style="margin: 0 0 48px; font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.8; max-width: 560px;">
-      サブコピー
-    </p>
-  </div>
-</section>
-```
-
-### 技法 2: 明るい背景 Hero（親しみ・カジュアル・サービス系に有効）
-
-```html
-<!-- background-color は DESIGN.md の雰囲気から選ぶ -->
-<section id="hero" style="background-color: [ブランドの淡い背景色]; padding: 120px 40px 80px;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 64px; align-items: center; flex-wrap: wrap;">
-    <div style="flex: 1 1 480px;">
-      <!-- タグチップ: ブランドカラーの淡い背景 + 濃いテキスト -->
-      <span style="display: inline-block; padding: 6px 16px;
-        background: [primary の 20% 透過]; color: [primary の濃い色];
-        font-size: 13px; font-weight: 700; border-radius: 999px; margin-bottom: 24px;">
-        タグライン
-      </span>
-      <h1 style="margin: 0 0 20px; font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; color: [テキスト色];">
-        キャッチコピー
-      </h1>
-    </div>
-    <div style="flex: 1 1 400px;">
-      <!-- 画像プレースホルダー: ブランドカラーのグラデーション -->
-      <div style="width: 100%; aspect-ratio: 4/3;
-        background: linear-gradient(135deg, [primary 薄め], [secondary 薄め]);
-        border-radius: 16px; display: flex; align-items: center; justify-content: center;">
-        <span style="color: [primary]; font-size: 14px; opacity: 0.6;">[画像: ヒービジュアル]</span>
-      </div>
-    </div>
-  </div>
-</section>
-```
-
-### 技法 3: セクション背景の使い分け
-
-同じ背景が続かないよう、DESIGN.md の世界観に合わせてバリエーションを設計する。
-**ここで示すのは「構造の原則」であり、色は必ずプロジェクトから導く。**
-
-```
-[Hero]       → DESIGN.md の世界観で最もインパクトが出る背景（暗 or 明）
-[主要情報]   → 白 or オフホワイト（読みやすさ優先）
-[数字・実績] → ブランドカラーを薄くした背景（アクセントとして）
-[声・信頼]   → 極薄グレー or クリーム系（落ち着き）
-[CTA]        → 最もコントラストが高い背景（行動喚起）
-[Footer]     → 最も暗いトーン
-```
-
-### 技法 4: カードの奥行き表現
-
-```html
-<!-- 技法A: shadow カード（背景が白いときに有効） -->
-<div style="background: #FFFFFF; border-radius: 16px; padding: 32px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.08);">
-</div>
-
-<!-- 技法B: アクセントボーダー（ブランドカラーを上線に使う） -->
-<div style="background: #FFFFFF; border-radius: 12px; padding: 28px;
-  border-top: 4px solid [primaryカラー]; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
-</div>
-
-<!-- 技法C: 背景色カード（セクション背景が暗いときは明るいカード） -->
-<div style="background: rgba(255,255,255,0.08); border-radius: 16px; padding: 32px;
-  border: 1px solid rgba(255,255,255,0.12);">
-</div>
-```
-
-### 技法 5: 見出しの階層と強弱
-
-```html
-<div style="margin-bottom: 64px;">
-  <!-- 上部ラベル: アクセントカラー + 字間広め -->
-  <p style="margin: 0 0 12px; font-size: 13px; font-weight: 700;
-    letter-spacing: 0.18em; text-transform: uppercase; color: [アクセントカラー];">
-    SECTION LABEL
-  </p>
-  <!-- メイン見出し: 太く・字間詰め -->
-  <h2 style="margin: 0 0 16px; font-size: 48px; font-weight: 800;
-    letter-spacing: -0.02em; line-height: 1.1; color: [テキスト色];">
-    セクションタイトル
-  </h2>
-  <!-- サブテキスト: 薄いグレー・読みやすい行間 -->
-  <p style="margin: 0; font-size: 18px; color: [薄いテキスト色]; line-height: 1.7; max-width: 600px;">
-    サポートテキスト
-  </p>
-</div>
-```
-
-### 技法 6: 数字・実績バンド
-
-```html
-<!-- 背景色は DESIGN.md から選択。暗めのブランドカラーが映える -->
-<div style="background: [ブランドの濃い背景色]; padding: 80px 40px; border-radius: 24px;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 48px; justify-content: center; flex-wrap: wrap; text-align: center;">
-    <div>
-      <p style="margin: 0 0 4px; font-size: 64px; font-weight: 900; color: #FFFFFF; line-height: 1; letter-spacing: -0.02em;">
-        1,200<span style="font-size: 32px; color: [アクセント];">+</span>
-      </p>
-      <p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.6); letter-spacing: 0.08em;">実績件数</p>
-    </div>
-  </div>
-</div>
-```
-
-### 技法 7: CTA セクション
-
-```html
-<!-- background は DESIGN.md の CTA 方針から。グラデーションが有効なケースが多い -->
-<section style="background: linear-gradient(135deg, [primary], [secondary]); padding: 100px 40px;">
-  <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-    <h2 style="margin: 0 0 20px; font-size: 48px; font-weight: 800; color: #FFFFFF; letter-spacing: -0.02em; line-height: 1.2;">
-      行動を促すコピー
-    </h2>
-    <a href="#" style="display: inline-block; padding: 20px 56px;
-      background: #FFFFFF; color: [primary]; font-weight: 800; font-size: 18px;
-      text-decoration: none; border-radius: 8px;">
-      メインCTA
-    </a>
-  </div>
-</section>
-```
+- **カラーパレット**: DESIGN.md の方向性を基に、Primary・Secondary・Background・Accent・Text を決定。根拠を DESIGN TOKENS コメントに記録する
+- **タイポグラフィ**: サイズ・ウェイト・字間・行間の体系。見出しの「顔」がブランドの第一印象になる
+- **余白とリズム**: どこを「息を吸う場所」にして、どこを「密度で引き込む場所」にするか
+- **背景の変化**: セクションをどんな色・質感でつなぐか。単調にならないようにするのではなく、ストーリーに沿って変化させる
+- **深度と質感**: shadow・border・gradient・透過。どこに「奥行き」を作るとブランドが引き立つか
+- **アクセント**: ブランドの個性が最も光る場所はどこか。1〜2箇所に絞って強く使う
 
 ---
 
 ## デザイントークン記録（必須）
 
-HTMLの冒頭コメントに記録する:
+HTMLの冒頭コメントに、デザインの意思決定を記録する。
+後続フェーズのエンジニアへの引き継ぎ資料であり、Phase 4 の SSoT となる。
 
 ```html
 <!--
   DESIGN TOKENS: [サイト名]
 
-  ブランドの意図: （このデザインが体現する価値観・感情）
+  デザインのコンセプト: （このデザインが体現しようとした世界観・感情・ブランドの本質）
 
   Colors:
-  - Primary:    #XXXXXX（根拠: ブランドカラー / ○○を表現）
-  - Secondary:  #XXXXXX
+  - Primary:    #XXXXXX（根拠: ○○）
+  - Secondary:  #XXXXXX（根拠: ○○）
   - Background: #XXXXXX
   - Text:       #XXXXXX
-  - Accent/CTA: #XXXXXX
+  - Accent/CTA: #XXXXXX（根拠: ○○）
 
   Typography:
-  - Hero:   XXpx / weight 800 / tracking -0.03em
-  - H2:     XXpx / weight 700 / tracking -0.02em
+  - Hero:   XXpx / weight XXX / tracking XXem
+  - H2:     XXpx / weight XXX / tracking XXem
   - Body:   16-18px / weight 400 / line-height 1.7
 
-  Spacing: 8pxグリッド（セクションは 80px〜120px）
+  Spacing: （基本単位と、セクションの上下パディング）
   Max-width: 1200px
 -->
 ```
 
 ---
 
-## 絶対ルール
+## 絶対ルール（技術的制約）
 
 | # | ルール |
 |---|---|
 | 1 | **CSSは全てインライン**（`style=""`のみ）。`<style>` / 外部CSS禁止 |
-| 2 | **単一HTMLファイルで完結** |
+| 2 | **1ページ = 1 HTMLファイル**。1ページなら `design-draft.html`、複数ページなら `design-draft/` フォルダにページごとのファイルを作成する |
 | 3 | **外部リソース禁止**（CDN・Google Fonts・外部画像URL禁止） |
 | 4 | **`<script>` / `<link>` タグ禁止** |
-| 5 | ファイル名は `design-draft.html` |
+| 5 | **ワイヤーフレームと同じページ数・同じファイル名で出力する** |
 | 6 | **必ず上書き（write）。追記（append）禁止。** `<!DOCTYPE html>` は1回のみ |
 
 ---
 
 ## フォント（システムフォントのみ）
 
-```css
-/* 日本語 */
-font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
-/* 英数字（見出しに混在させると洗練される） */
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+```
+日本語: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif
+英数字: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
 ```
 
 ---
@@ -241,20 +125,25 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 ## DESIGN.md の更新（v1 → v2）
 
 Phase 3 完了後、`DESIGN.md` を確定版（v2）に更新する。
-`design-draft.html` の DESIGN TOKENS コメントから値を抽出し、各セクションを具体値で上書きする。ステータスを「確定版（v2）」に変更する。
+`design-draft.html` の DESIGN TOKENS コメントから値を抽出し、具体値で上書きする。ステータスを「確定版（v2）」に変更する。
 
 ---
 
 ## 出力チェックリスト
 
-- [ ] Hero がワイヤーフレームと視覚的に全く異なるか（色・タイポ・レイアウト）
-- [ ] 全セクションが同じ白背景でないか（背景色のバリエーションがあるか）
-- [ ] カードに shadow / border-radius / アクセントが適用されているか
-- [ ] CTA ボタンが存在感のあるスタイルになっているか
-- [ ] 見出しに font-weight 700〜900 が使われているか
-- [ ] セクションラベル（小さいキャプション）が見出し前に置かれているか
-- [ ] 画像プレースホルダーが `background: linear-gradient(...)` など色付きになっているか（グレーの単色でないか）
-- [ ] DESIGN TOKENS コメントが冒頭にあるか
+**デザインの意図:**
+- [ ] DESIGN TOKENS コメントに「デザインのコンセプト」が書かれているか（「○○な雰囲気を出した」ではなく、なぜそうしたかが書かれているか）
+- [ ] カラー・タイポ・余白の選択に、DESIGN.md や context.md から引いた根拠があるか
+- [ ] ブランドの個性が最も出ているアクセントポイントが1〜2箇所あるか
+- [ ] ユーザーの体験ストーリーに沿った感情の流れがビジュアルに反映されているか
+
+**品質:**
+- [ ] 見出しに適切なウェイト・字間が使われているか（デフォルトのままでないか）
+- [ ] セクションの背景が単調でなく、ストーリーに沿って変化しているか
+- [ ] CTA が存在感を持っているか
+- [ ] 画像プレースホルダーが意図を持った色・比率になっているか（グレー単色でないか）
+
+**技術:**
 - [ ] `<style>` / `<link>` / `<script>` タグが存在しないか
 - [ ] 外部URLが含まれていないか
 - [ ] `<!DOCTYPE html>` がファイル内に1回だけ存在するか

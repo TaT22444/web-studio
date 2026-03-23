@@ -1,7 +1,9 @@
 # 📐 ワイヤーフレーム出力ルール（Claude内部参照用）
 
 > このファイルはClaudeが Phase 2 を進めるための内部ガイドです。
-> Phase 2の成果物は `{project-name}/wireframe.html` に書き出します。
+> Phase 2の成果物は以下のいずれかで書き出します。
+> - **1ページのみ:** `{project}/wireframe.html`
+> - **複数ページあり:** `{project}/wireframe/` フォルダ以下にページごとのHTMLファイル
 > 要件定義（Phase 1）が承認された後にのみ実行する。
 
 ---
@@ -164,12 +166,48 @@ requirements.md に 10 個の情報項目があっても、10 セクション作
 |---|---|
 | 1 | **グレースケールのみ使用**。色の判断をこのフェーズに持ち込まない |
 | 2 | **CSSは全てインライン記述**（`style=""`属性のみ）。`<style>`タグ・外部CSSファイル禁止 |
-| 3 | **単一HTMLファイルで完結**。複数ファイル分割禁止 |
+| 3 | **1ページ = 1 HTMLファイル**。1ページのみなら `wireframe.html`、複数ページなら `wireframe/` フォルダにページごとのファイルを作成する（後述の命名規則を参照） |
 | 4 | **外部リソース読み込み禁止**。CDN・Google Fonts・外部画像URL禁止 |
 | 5 | **JavaScriptは禁止**。`<script>`タグ禁止 |
 | 6 | **`<link>`タグ禁止**（faviconも含む） |
-| 7 | ファイル名は `wireframe.html` とする |
-| 8 | **ファイルは必ず上書き（write）する。追記（append）禁止。** 修正・再生成時も、完全なHTML文書1つだけで `wireframe.html` を上書きすること。`<!DOCTYPE html>` が2回以上出現するファイルは壊れたファイルである |
+| 7 | **ファイルは必ず上書き（write）する。追記（append）禁止。** 修正・再生成時も、完全なHTML文書1つだけで上書きすること。`<!DOCTYPE html>` が2回以上出現するファイルは壊れたファイルである |
+
+---
+
+## 複数ページの場合のファイル構成
+
+`requirements.md` に複数のページが定義されている場合、各ページを独立した HTML ファイルとして出力する。
+
+### ファイル命名規則
+
+| ページ | ファイル名 |
+|---|---|
+| トップ / ホーム | `wireframe/index.html` |
+| About / 会社概要 | `wireframe/about.html` |
+| サービス | `wireframe/services.html` |
+| 料金 | `wireframe/pricing.html` |
+| ブログ / ニュース | `wireframe/blog.html` |
+| お問い合わせ | `wireframe/contact.html` |
+| その他 | `wireframe/{ページ名（英小文字）}.html` |
+
+### ページ間ナビゲーション
+
+各ページの上部に、シンプルなナビゲーションバーを設置してページ間を移動できるようにする。
+リンクは同じ `wireframe/` フォルダ内の相対パスで記述する（例: `<a href="./about.html">`）。
+
+```html
+<!-- ナビゲーション例 -->
+<nav style="background: #333; padding: 12px 40px; display: flex; gap: 24px;">
+  <a href="./index.html" style="color: #fff; text-decoration: none; font-size: 14px;">TOP</a>
+  <a href="./about.html" style="color: #fff; text-decoration: none; font-size: 14px;">About</a>
+  <a href="./services.html" style="color: #fff; text-decoration: none; font-size: 14px;">Services</a>
+  <a href="./contact.html" style="color: #fff; text-decoration: none; font-size: 14px;">Contact</a>
+</nav>
+```
+
+### WIREFRAME STRATEGY コメントの書き方（複数ページ）
+
+トップページ（`index.html`）のコメントにサイト全体の戦略を記載し、各サブページにはそのページ固有の目的を記載する。
 
 ---
 
@@ -320,6 +358,6 @@ requirements.md に 10 個の情報項目があっても、10 セクション作
 - [ ] `<script>`タグが存在しないか
 - [ ] 外部URLが含まれていないか
 - [ ] 全てのCSSが `style=""` 属性で記述されているか
-- [ ] 単一ファイルで完結しているか
-- [ ] ファイル名が `wireframe.html` になっているか
-- [ ] `<!DOCTYPE html>` がファイル内に1回だけ存在するか（複数回 = 追記ミス）
+- [ ] 1ページなら `wireframe.html`、複数ページなら `wireframe/` フォルダに分割されているか
+- [ ] 複数ページの場合、各ページにナビゲーションが設置されているか
+- [ ] 各ファイル内で `<!DOCTYPE html>` が1回だけ存在するか（複数回 = 追記ミス）

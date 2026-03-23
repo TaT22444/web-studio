@@ -12,8 +12,8 @@
 Phase 4を開始する前に、必ず以下を確認する。
 
 1. **DESIGN.md（v2）の読み込み**: `{project}/docs/DESIGN.md` の確定値（カラーパレット・タイポグラフィ・スペーシング）を読み取り、`tailwind.config.ts` に反映する。DESIGN.md がデザインシステムの Single Source of Truth
-2. **デザイントークンの照合**: `design-draft.html` の冒頭コメント（DESIGN TOKENS）と `DESIGN.md`（v2）の値が一致していることを確認する
-3. **セクション構成の把握**: `design-draft.html` のセクション（`id`属性）を確認し、コンポーネント構成を決める
+2. **デザイントークンの照合**: `design-draft.html`（複数ページの場合は `design-draft/` 以下のファイル群）の冒頭コメント（DESIGN TOKENS）と `DESIGN.md`（v2）の値が一致していることを確認する
+3. **セクション構成の把握**: 各 `design-draft` ファイルのセクション（`id`属性）を確認し、ページ構成とコンポーネント構成を決める
 4. **「人間が決めたこと」の保持**: 要件定義書の「🔒 ブランドの本質」セクションに記載のブランド価値観・トーン・CTAは、実装で変更しない
 
 ---
