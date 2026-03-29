@@ -1,12 +1,30 @@
 # web-studio
 
-Web制作のヒアリング・要件定義・ワイヤーフレーム・ビジュアルデザイン・実装を4フェーズで進めるClaude Codeプラグインです。
+Web制作のヒアリング・要件定義・ワイヤーフレーム・ビジュアルデザイン・実装を4フェーズで進めるプラグインです。
 
 ## インストール
+
+### Claude Code
 
 ```bash
 claude plugin marketplace add TaT22444/web-studio
 claude plugin install web-studio
+```
+
+### Cursor / その他エディタ
+
+```bash
+curl -sL https://raw.githubusercontent.com/TaT22444/web-studio/main/install.sh | bash
+```
+
+または手動で:
+
+```bash
+git clone https://github.com/TaT22444/web-studio.git /tmp/web-studio
+mkdir -p ~/.cursor/skills
+cp -R /tmp/web-studio/skills/web-production ~/.cursor/skills/
+cp -R /tmp/web-studio/skills/setup ~/.cursor/skills/
+rm -rf /tmp/web-studio
 ```
 
 ## 使い方
@@ -35,16 +53,24 @@ Webサイト・LP・コーポレートサイトの制作依頼をすると自動
 
 ## アップデート
 
+### Claude Code
+
 ```bash
 claude plugin update web-studio
 ```
 
-### 更新が反映されない場合
-
-環境によっては `update` が失敗したり、マーケットプレイスのキャッシュが古いままになることがあります。その場合は、マーケットプレイスを再登録してから再インストールしてください。
+更新が反映されない場合は、マーケットプレイスを再登録してから再インストールしてください。
 
 ```bash
 claude plugin marketplace remove web-studio
 claude plugin marketplace add TaT22444/web-studio
 claude plugin install web-studio
+```
+
+### Cursor / その他エディタ
+
+インストールコマンドを再度実行してください（上書きされます）。
+
+```bash
+curl -sL https://raw.githubusercontent.com/TaT22444/web-studio/main/install.sh | bash
 ```
