@@ -7,6 +7,7 @@ disable-model-invocation: true
 # web-studio セットアップ
 
 `${CLAUDE_SKILL_DIR}/references/setup-guide.md` を読み込み、指示に従う。
+指示がない限りはヒアリングをスキップしないこと。事前に情報を渡された際は、その分の情報を記入し、不足分や深掘りたいところをヒヤリングするように。
 
 出力:
 - `{project}/docs/context.md`（なぜ作るか・背景・判断基準）
