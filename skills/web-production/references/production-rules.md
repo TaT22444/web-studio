@@ -11,10 +11,21 @@
 
 Phase 4を開始する前に、必ず以下を確認する。
 
-1. **DESIGN.md（v2）の読み込み**: `{project}/docs/DESIGN.md` の確定値（カラーパレット・タイポグラフィ・スペーシング）を読み取り、`tailwind.config.ts` に反映する。DESIGN.md がデザインシステムの Single Source of Truth
+1. **DESIGN.md（v2）の読み込みと tailwind.config.ts への反映**: `{project}/docs/DESIGN.md` は 8 セクション構成の確定版。デザインシステムの Single Source of Truth として以下の通り反映する:
+
+   | DESIGN.md v2 セクション | tailwind.config.ts への反映先 |
+   |---|---|
+   | Section 2: カラーパレット | `theme.extend.colors` — セマンティック名でカスタムカラーを定義 |
+   | Section 3: タイポグラフィ | `theme.extend.fontFamily` + `theme.extend.fontSize`（サイズ・ウェイト・字間をプリセット化） |
+   | Section 5: レイアウト・スペーシング | `theme.extend.spacing` + `theme.extend.maxWidth`（必要に応じて） |
+   | Section 6: 深度・エレベーション | `theme.extend.boxShadow` + `theme.extend.borderRadius` |
+
+   Section 4（コンポーネント）は `components/ui/` の基本コンポーネント設計に反映する。
+   Section 8（レスポンシブ・アニメーション）はブレークポイント設計とアニメーション実装の参照とする。
+
 2. **デザイントークンの照合**: `design-draft.html`（複数ページの場合は `design-draft/` 以下のファイル群）の冒頭コメント（DESIGN TOKENS）と `DESIGN.md`（v2）の値が一致していることを確認する
 3. **セクション構成の把握**: 各 `design-draft` ファイルのセクション（`id`属性）を確認し、ページ構成とコンポーネント構成を決める
-4. **アニメーション・インタラクションの引き継ぎ**: `design-draft` の `<script>` と DESIGN TOKENS コメントの「Animation」欄を読み込み、同等の動きを実装する。CDN で実装していたライブラリは npm パッケージに切り替える
+4. **アニメーション・インタラクションの引き継ぎ**: `design-draft` の `<script>` と DESIGN.md v2 Section 8（レスポンシブ・アニメーション）を読み込み、同等の動きを実装する。CDN で実装していたライブラリは npm パッケージに切り替える
 5. **「人間が決めたこと」の保持**: 要件定義書の「🔒 ブランドの本質」セクションに記載のブランド価値観・トーン・CTAは、実装で変更しない
 
 ---
