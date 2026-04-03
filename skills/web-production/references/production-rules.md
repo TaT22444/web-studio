@@ -11,9 +11,9 @@
 
 Phase 4を開始する前に、必ず以下を確認する。
 
-1. **DESIGN.md（v2）の読み込みと tailwind.config.ts への反映**: `{project}/docs/DESIGN.md` は 8 セクション構成の確定版。デザインシステムの Single Source of Truth として以下の通り反映する:
+1. **DESIGN.md（v2+）の読み込みと Tailwind 設定への反映**: `{project}/docs/DESIGN.md` は 8 セクション構成の確定版（v2.x の追記更新がある場合は最新版を使う）。デザインシステムの Single Source of Truth として以下の通り反映する:
 
-   | DESIGN.md v2 セクション | tailwind.config.ts への反映先 |
+   | DESIGN.md v2+ セクション | Tailwind 設定への反映先 |
    |---|---|
    | Section 2: カラーパレット | `theme.extend.colors` — セマンティック名でカスタムカラーを定義 |
    | Section 3: タイポグラフィ | `theme.extend.fontFamily` + `theme.extend.fontSize`（サイズ・ウェイト・字間をプリセット化） |
@@ -23,7 +23,7 @@ Phase 4を開始する前に、必ず以下を確認する。
    Section 4（コンポーネント）は `components/ui/` の基本コンポーネント設計に反映する。
    Section 8（レスポンシブ・アニメーション）はブレークポイント設計とアニメーション実装の参照とする。
 
-2. **デザイントークンの照合**: `design-draft.html`（複数ページの場合は `design-draft/` 以下のファイル群）の冒頭コメント（DESIGN TOKENS）と `DESIGN.md`（v2）の値が一致していることを確認する
+2. **デザイントークンの照合**: `design-draft.html`（複数ページの場合は `design-draft/` 以下のファイル群）の冒頭コメント（DESIGN TOKENS）と `DESIGN.md`（v2+）の値が一致していることを確認する
 3. **セクション構成の把握**: 各 `design-draft` ファイルのセクション（`id`属性）を確認し、ページ構成とコンポーネント構成を決める
 4. **アニメーション・インタラクションの引き継ぎ**: `design-draft` の `<script>` と DESIGN.md v2 Section 8（レスポンシブ・アニメーション）を読み込み、同等の動きを実装する。CDN で実装していたライブラリは npm パッケージに切り替える
 5. **「人間が決めたこと」の保持**: 要件定義書の「🔒 ブランドの本質」セクションに記載のブランド価値観・トーン・CTAは、実装で変更しない
@@ -65,22 +65,33 @@ Astro を選ぶ理由:
 
 ---
 
-## ディレクトリ構成
+## ディレクトリ構成（Astro デフォルト）
 
 ```
 src/
-├── app/
-│   ├── layout.tsx         # ルートレイアウト（フォント・メタ情報）
-│   ├── page.tsx           # トップページ
-│   └── globals.css        # グローバルスタイル（Tailwindのみ）
+├── pages/
+│   ├── index.astro          # トップページ
+│   ├── about.astro          # サブページ（例）
+│   └── works/
+│       └── [slug].astro     # 動的ルート（作品詳細等）
+├── layouts/
+│   └── Base.astro           # 共通レイアウト（head・ナビ・フッター）
 ├── components/
-│   ├── ui/                # 汎用UIコンポーネント（Button, Card等）
-│   └── sections/          # ページセクションコンポーネント
-│       ├── Hero.tsx
-│       ├── About.tsx
+│   ├── ui/                  # 汎用UIコンポーネント（Button, Card等）
+│   │   ├── Button.astro
+│   │   └── Card.astro
+│   └── sections/            # ページセクションコンポーネント
+│       ├── Hero.astro
+│       ├── About.astro
 │       └── ...
+├── content/                 # コンテンツコレクション（MD / MDX）
+│   └── works/
+│       ├── project-01.md
+│       └── project-02.md
+├── styles/
+│   └── global.css           # グローバルスタイル（Tailwind ディレクティブ）
 └── lib/
-    └── utils.ts           # ユーティリティ関数
+    └── utils.ts             # ユーティリティ関数
 ```
 
 ---
@@ -90,44 +101,74 @@ src/
 ### 基本方針
 - **1ファイル = 1コンポーネント**
 - セクション単位でコンポーネントを分割する（Hero, About, Services...）
-- propsには必ずTypeScriptの型を定義する
+- Props には TypeScript の `Props` インターフェースを定義する
 
-### コンポーネントテンプレート
-```tsx
-// src/components/sections/Hero.tsx
-import type { FC } from 'react'
-
-type HeroProps = {
+### コンポーネントテンプレート（Astro）
+```astro
+---
+// src/components/sections/Hero.astro
+interface Props {
   title: string
   subtitle?: string
   ctaLabel: string
   ctaHref: string
 }
 
-const Hero: FC<HeroProps> = ({ title, subtitle, ctaLabel, ctaHref }) => {
-  return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
-          {title}
-        </h1>
-        {subtitle && (
-          <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            {subtitle}
-          </p>
-        )}
-        <a
-          href={ctaHref}
-          className="mt-10 inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
-        >
-          {ctaLabel}
-        </a>
-      </div>
-    </section>
-  )
+const { title, subtitle, ctaLabel, ctaHref } = Astro.props
+---
+
+<section class="relative w-full min-h-screen flex items-center justify-center bg-gray-50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
+      {title}
+    </h1>
+    {subtitle && (
+      <p class="mt-6 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+        {subtitle}
+      </p>
+    )}
+    <a
+      href={ctaHref}
+      class="mt-10 inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+    >
+      {ctaLabel}
+    </a>
+  </div>
+</section>
+```
+
+### レイアウトテンプレート
+```astro
+---
+// src/layouts/Base.astro
+import '@fontsource/noto-sans-jp/400.css'
+import '@fontsource/noto-sans-jp/500.css'
+import '@fontsource/noto-sans-jp/700.css'
+import '../styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
 }
 
-export default Hero
+const { title, description = 'サイトの説明' } = Astro.props
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="font-sans text-gray-900 bg-white">
+    <slot />
+  </body>
+</html>
 ```
 
 ---
@@ -152,16 +193,19 @@ lg: 1024px → デスクトップ
 xl: 1280px → ワイドスクリーン
 ```
 
-### カスタムカラー（tailwind.config.ts）
+### カスタムカラー（tailwind.config.mjs）
 ブランドカラーはTailwindの設定ファイルでカスタムカラーとして定義する。
-```ts
-// tailwind.config.ts
-theme: {
-  extend: {
-    colors: {
-      brand: {
-        primary: '#3B82F6',
-        secondary: '#1E40AF',
+```mjs
+// tailwind.config.mjs
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          primary: '#3B82F6',
+          secondary: '#1E40AF',
+        }
       }
     }
   }
@@ -170,7 +214,83 @@ theme: {
 
 ---
 
-## Next.js 実装ルール
+## Astro 実装ルール
+
+### フォント
+`@fontsource/*` パッケージを使う。レイアウトの frontmatter で import する。
+```bash
+pnpm add @fontsource/noto-sans-jp @fontsource/dm-sans
+```
+
+### 画像
+`astro:assets` の `<Image>` コンポーネントを使う。`<img>` タグ直書きは避ける。
+```astro
+---
+import { Image } from 'astro:assets'
+import heroImage from '../assets/hero.jpg'
+---
+
+<Image
+  src={heroImage}
+  alt="ヒーロービジュアル"
+  width={1440}
+  height={800}
+  loading="eager"
+  class="w-full h-auto object-cover"
+/>
+```
+
+### コンテンツコレクション（ブログ・作品集等）
+繰り返しコンテンツは `src/content/` に Markdown で管理し、`getCollection()` で取得する。
+```astro
+---
+// src/pages/works/[slug].astro
+import { getCollection } from 'astro:content'
+import Base from '../../layouts/Base.astro'
+
+export async function getStaticPaths() {
+  const works = await getCollection('works')
+  return works.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { Content } = await entry.render()
+---
+
+<Base title={entry.data.title}>
+  <article>
+    <Content />
+  </article>
+</Base>
+```
+
+### インタラクティブ要素
+Astro はデフォルトでゼロ JS。インタラクションが必要な場合:
+- 軽量なもの（ナビ開閉・スクロール監視）→ `<script>` タグ（Vanilla JS）
+- 複雑な状態管理 → React / Vue アイランド（`client:load` / `client:visible`）
+
+---
+
+## 代替構成: Next.js（ユーザー指定時）
+
+### ディレクトリ構成（Next.js）
+```
+src/
+├── app/
+│   ├── layout.tsx         # ルートレイアウト
+│   ├── page.tsx           # トップページ
+│   └── globals.css        # グローバルスタイル
+├── components/
+│   ├── ui/
+│   └── sections/
+│       ├── Hero.tsx
+│       └── ...
+└── lib/
+    └── utils.ts
+```
 
 ### App Router 基本構成
 ```tsx
@@ -214,10 +334,10 @@ import Image from 'next/image'
 
 <Image
   src="/images/hero.jpg"
-  alt="ヒービジュアル"
+  alt="ヒーロービジュアル"
   width={1440}
   height={800}
-  priority  // ファーストビューの画像にはpriority付与
+  priority
   className="w-full h-auto object-cover"
 />
 ```
@@ -243,21 +363,21 @@ import Image from 'next/image'
 ## パフォーマンスルール
 
 - **Core Web Vitals** を意識した実装
-  - LCP: ファーストビュー画像に `priority` を付与
+  - LCP: ファーストビュー画像に `loading="eager"` / `priority`（Next.js）を付与
   - CLS: 画像・フォントに `width/height` を明示
-  - FID/INP: 不要なJavaScriptを削減
-- 重いコンポーネントは `next/dynamic` で遅延読み込み
+  - FID/INP: 不要なJavaScriptを削減（Astro ならデフォルトでゼロ JS）
+- 重いコンポーネントは遅延読み込み（Astro: `client:visible` / Next.js: `next/dynamic`）
 - アニメーションは `transform` と `opacity` のみ使う（レイアウトシフト防止）
 
 ---
 
 ## SEO ルール
 
-- 各ページに `metadata` を設定する（title, description, OGP）
+- 各ページの `<head>` に title, description, OGP を設定する（Astro: レイアウトの props / Next.js: `metadata`）
 - 見出し階層を正しく使う（h1 はページに1つのみ）
 - `<a>` タグは正しいhrefを持つ（`#` だけのリンクは避ける）
 - Canonical URLを設定する
-- sitemap.xml と robots.txt を生成する（`app/sitemap.ts`, `app/robots.ts`）
+- sitemap.xml と robots.txt を生成する（Astro: `@astrojs/sitemap` / Next.js: `app/sitemap.ts`）
 
 ---
 
@@ -282,5 +402,5 @@ import Image from 'next/image'
 - [ ] OGP画像・メタタグが設定されているか
 - [ ] 画像に `alt` テキストが設定されているか
 - [ ] フォームのバリデーションが動作するか
-- [ ] 404ページが実装されているか（`app/not-found.tsx`）
+- [ ] 404ページが実装されているか（Astro: `src/pages/404.astro` / Next.js: `app/not-found.tsx`）
 - [ ] 環境変数が `.env.example` に記載されているか
