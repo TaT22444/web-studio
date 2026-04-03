@@ -1,15 +1,15 @@
 # 💻 本番実装 コーディング規約（Claude内部参照用）
 
-> このファイルはClaudeが Phase 4 を進めるための内部ガイドです。
-> Phase 4の成果物は `{project-name}/src/` 以下に書き出します。
+> このファイルはClaudeが Phase 3 を進めるための内部ガイドです。
+> Phase 3の成果物は `{project-name}/src/` 以下に書き出します。
 
-ビジュアルデザイン（Phase 3）が承認された後にのみ実行する。
+デザイン（Phase 2）が承認された後にのみ実行する。
 
 ---
 
 ## 実装開始前の必須確認
 
-Phase 4を開始する前に、必ず以下を確認する。
+Phase 3を開始する前に、必ず以下を確認する。
 
 1. **DESIGN.md（v2+）の読み込みと Tailwind 設定への反映**: `{project}/docs/DESIGN.md` は 8 セクション構成の確定版（v2.x の追記更新がある場合は最新版を使う）。デザインシステムの Single Source of Truth として以下の通り反映する:
 
